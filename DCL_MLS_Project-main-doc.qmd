@@ -14,6 +14,7 @@ author:
     affiliation: "HWI Hamburg"
     email: "jannik.svenson@studium.uni-hamburg.de"
 date: "30. Juni 2024"
+
 ---
 <!-- format: pptx -->
 AKTUALISIERUNGSDATUM <br>
@@ -52,15 +53,42 @@ Tschüss
 eventuell elegant abschließen?
 
 
+## Testing Ground
+In diesem Dokument wird ein LaTeX-Dokument in Quarto eingebunden.
+
+```{verbatim}
+\documentclass{article}
+\usepackage{lipsum} % Beispieltextpaket
+
+\title{Beispiel LaTeX Dokument}
+\author{Autor Name}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Einleitung}
+\lipsum[1-2] % Beispieltext
+
+\section{Hauptteil}
+\lipsum[3-4] % Beispieltext
+
+\end{document}
+```
+
+{include, file="latex_files/test.tex", raw=true}
 
 
+\begin{tabular}{|l|l|}\hline
+Age & Frequency \\ \hline
+18--25  & 15 \\
+26--35  & 33 \\
+36--45  & 22 \\ \hline
+\end{tabular}
 
 
-
-
-
-
-
+# demo stuff
 
 
 \vspace{30pt}
@@ -75,6 +103,7 @@ When you click the **Render** button a document will be generated that includes 
 ```{r}
 1 + 1
 ```
+
 
 You can add options to executable code like this
 
