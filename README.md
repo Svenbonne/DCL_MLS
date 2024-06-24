@@ -50,3 +50,30 @@ We'd recommend you to organize your repo as follows.
 * In case you use quarto for your data product, include your `.qmd` files here, see [this example](demo_repo.qmd)
 
 These basic recommendations are intended to give you a bit structure. You can deviate from them as you like but please make sure others should be able to understand what you did. 😄
+
+# DCL Project
+
+## Beschreibung
+Eine kurze Beschreibung des Projekts.
+Während des Data Science Moduls Kausale Inferenz wurden wir ermutigt ein eigenes Data Science Projekt durchzuführen. Dieses Repository enthält unsere Arbeit, welche nachfolgend einmal kurz eingeführt wird.
+
+## Autoren
+- [lucas.mandelik@studium.uni-hamburg.de](mailto:lucas.mandelik@studium.uni-hamburg.de)
+- [alexander.lorentz@studium.uni-hamburg.de](mailto:alexander.lorentz@studium.uni-hamburg.de)
+- [jannik.svenson@studium.uni-hamburg.de](mailto:jannik.svenson@studium.uni-hamburg.de)
+
+## Datum
+Datum der letzten Aktualisierung: 24. Juni 2024
+
+## Inhaltsverzeichnis
+1. [Einleitung](#einleitung)
+2. [Grundlagen](#Grundlagen)
+3. [Parrots Pa](#verwendung)
+4. [Beitrag](#beitrag)
+5. [Lizenz](#lizenz)
+
+## Einleitung
+Eine detailliertere Beschreibung des Projekts, seiner Ziele und Funktionen.
+
+## Grundlagen
+Zuerst kann einmal festgehalten werden, dass wir uns im folgenden hauptsächlich mit dem nachfolgenden oft debattierten Paper: XXXXX beschäftigen.
