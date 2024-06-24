@@ -67,13 +67,23 @@ Datum der letzten Aktualisierung: 24. Juni 2024
 
 ## Inhaltsverzeichnis
 1. [Einleitung](#einleitung)
-2. [Grundlagen](#Grundlagen)
-3. [Parrots Pa](#verwendung)
+2. [Grundlagen](#grundlagen)
+3. [Parrots Paradox](#parrotsparadox)
 4. [Beitrag](#beitrag)
-5. [Lizenz](#lizenz)
+5. [Schlussbetrachtung](#schlussbetrachtung)
+6. [Lizenz](#lizenz)
 
 ## Einleitung
 Eine detailliertere Beschreibung des Projekts, seiner Ziele und Funktionen.
 
 ## Grundlagen
 Zuerst kann einmal festgehalten werden, dass wir uns im folgenden hauptsächlich mit dem nachfolgenden oft debattierten Paper: XXXXX beschäftigen.
+
+## ParrotsParadox
+hier das Paradoxon einleiten maybe mit IDS Knowledge
+
+## Beitrag
+hier evtl. Haupteil
+
+## Schlussbetrachtung
+eventuell elegant abschließen?
