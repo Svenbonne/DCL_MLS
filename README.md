@@ -59,7 +59,7 @@ Während des Data Science Moduls Kausale Inferenz wurden wir ermutigt ein eigene
 
 ## Autoren
 - [lucas.mandelik@studium.uni-hamburg.de](mailto:lucas.mandelik@studium.uni-hamburg.de)
-- [alexander.lorentz@studium.uni-hamburg.de](mailto:alexander.lorentz@studium.uni-hamburg.de)
+- [alexander.lorenz@studium.uni-hamburg.de](mailto:alexander.lorenz@studium.uni-hamburg.de)
 - [jannik.svenson@studium.uni-hamburg.de](mailto:jannik.svenson@studium.uni-hamburg.de)
 
 ## Datum

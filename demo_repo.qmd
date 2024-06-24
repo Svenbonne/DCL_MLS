@@ -1,9 +1,69 @@
 ---
-title: "Example Quarto Document"
-format: html
+title: "Causal Reasoning of LLMs"
+format: html 
 editor: visual
+lang: de
+author: 
+  - name: "Lucas Mandelik"
+    affiliation: "HWI Hamburg"
+    email: "lucas.mandelik@studium.uni-hamburg.de"
+  - name: "Alexander Lorenz"
+    affiliation: "HWI Hamburg"
+    email: "alexander.lorenz@studium.uni-hamburg.de"
+  - name: "Jannik Svenson"
+    affiliation: "HWI Hamburg"
+    email: "jannik.svenson@studium.uni-hamburg.de"
+date: "30. Juni 2024"
 ---
+<!-- format: pptx -->
+AKTUALISIERUNGSDATUM <br>
+24. Juni 2024
 
+
+## Inhaltsverzeichnis
+1. [Einleitung](#einleitung)
+2. [Grundlagen](#grundlagen)
+3. [Parrots Paradox](#parrotsparadox)
+4. [Beitrag](#beitrag)
+5. [Schlussbetrachtung](#schlussbetrachtung)
+6. [Lizenz](#lizenz)
+
+## Einleitung
+Eine detailliertere Beschreibung des Projekts, seiner Ziele und Funktionen.
+
+## Grundlagen
+Zuerst kann einmal festgehalten werden, dass wir uns im folgenden hauptsächlich mit dem nachfolgenden oft debattierten Paper: XXXXX beschäftigen.
+
+## ParrotsParadox
+hier das Paradoxon einleiten maybe mit IDS Knowledge
+
+## Beitrag
+hier evtl. Haupteil
+
+### Subsection 01
+
+Hallo
+
+### Subsection 02
+
+Tschüss
+
+## Schlussbetrachtung
+eventuell elegant abschließen?
+
+
+
+
+
+
+
+
+
+
+
+
+
+\vspace{30pt}
 ## Quarto
 
 Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
@@ -54,3 +114,4 @@ set.seed(1234)
 x <- draw(10)
 print(x)
 ```
+<!-- Text -->
