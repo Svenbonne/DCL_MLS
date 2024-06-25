@@ -144,3 +144,6 @@ x <- draw(10)
 print(x)
 ```
 <!-- Text -->
+
+## Spaß über LLMs vor GAI
+https://github.com/giuven95/chatgpt-failures.git
