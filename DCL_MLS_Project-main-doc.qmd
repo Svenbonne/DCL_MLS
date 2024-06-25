@@ -37,7 +37,11 @@ Zuerst kann einmal festgehalten werden, dass wir uns im folgenden hauptsächlich
 
 ## ParrotsParadox
 Einige Nutzer von LLMs haben bemerkt, dass LLMs nicht zwingend immer Kausalität erkennen können und sie z.B. auf einfache kausale Fragen falsch antworten.
+<<<<<<< Updated upstream
 In unserem Repository haben wir einige Fälle gesammelt, die zweifelhafte kausale Fähigkeiten von Chat GPT aufzeigen. Außerdem haben wir auch aus der Litertur bekannte Fragen, bei denen LLMs schonmal gescheitert sind, überprüft. Generell kann ChatGPT 4.0 und auch bedingt Chat GPT 3.5 Turbo diese Fragen gut beantworten, was aber nicht an dem kausalen Verständnis liegen muss, da diese Cases auch anders beantwortet werden könnten. Beispielsweise ist es denkbar, dass OpenAI diese Problem erkannt hat und entschieden hat bekannte Fälle und Fragen, die Sie von Nutzern mitbekommen, direkt z.B. durch "hardcoden" entfernen könnten. Außerdem könnten solche Fälle auch in den Trainingsdaten insbesondere von neueren LLMs vorhanden sein.
+=======
+In unserem Repository haben wir einige Fälle gesammelt, die zweifelhafte kausale Fähigkeiten von Chat GPT aufzeigen. Außerdem haben wir auch aus der Litertur bekannte Fragen, bei denen LLMs schonmal gescheitert sind, überprüft. Generell kann ChatGPT 4.0 und auch bedingt Chat GPT 3.5 Turbo diese Fragen gut beantworten, was aber nicht an dem kausalen Verständnis liegen muss, da diese Cases auch anders beantwortet werden könnten. Beispielsweise ist es denkbar, dass OpenAI dieses Problem erkannt hat und entschieden hat bekannte Fälle und Fragen, die sie von Nutzern mitbekommen, direkt z.B. durch "hardcoden" entfernen könnten. Außerdem könnten solche Fälle auch in den Trainingsdaten insbesondere von neueren LLMs vorhanden sein.
+>>>>>>> Stashed changes
 
 ## Beitrag
 hier evtl. Haupteil
