@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1719255866 "/Users/jannik/Documents/GitHub/DCL_MLS/latex_files/test.tex" "test.pdf" "test" 1719255866
-  "/Users/jannik/Documents/GitHub/DCL_MLS/latex_files/test.tex" 1719255771 277 63996ad258bb8bb42127b32b36314e67 ""
+["pdflatex"] 1719324134 "/Users/jannik/Documents/GitHub/DCL_MLS/latex_files/test.tex" "test.pdf" "test" 1719324134
+  "/Users/jannik/Documents/GitHub/DCL_MLS/latex_files/test.tex" 1719324134 270 7d5f514d68f7f75b3fd2e28b2ce1a6ee ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -28,8 +28,8 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1666727584 2826444 ef08ef6a1016cba795f2d3264acaf62f ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "test.aux" 1719255866 227 a3666c30ae5c8b051baddad2b2640318 "pdflatex"
-  "test.tex" 1719255771 277 63996ad258bb8bb42127b32b36314e67 ""
+  "test.aux" 1719324134 227 a3666c30ae5c8b051baddad2b2640318 "pdflatex"
+  "test.tex" 1719324134 270 7d5f514d68f7f75b3fd2e28b2ce1a6ee ""
   (generated)
   "test.aux"
   "test.log"

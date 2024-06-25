@@ -90,7 +90,9 @@ Age & Frequency \\ \hline
 
 
 ## Spaß über LLMs vor GAI
+Nachfolgende Späße sind nicht despektierlich gegenüber LLMs oder GAI gemeint, sondern sollen helfen diese voranzubringen.
 [ChatGPT Failures](https://github.com/giuven95/chatgpt-failures.git)
+
 
 # demo stuff
 
