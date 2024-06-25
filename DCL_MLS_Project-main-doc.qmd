@@ -54,6 +54,7 @@ Tschüss
 eventuell elegant abschließen?
 
 ## Referenzen
+[Linying Yang, Vik Shirvaikar, Oscar Clivio & Fabian Falck](https://openreview.net/forum?id=mRwgczYZFJ).
 
 
 
@@ -61,6 +62,7 @@ eventuell elegant abschließen?
 
 ### Spaß über LLMs vor GAI
 Nachfolgende Späße sind nicht despektierlich gegenüber LLMs oder GAI gemeint, sondern sollen helfen diese voranzubringen.
+
 [ChatGPT Failures](https://github.com/giuven95/chatgpt-failures.git)
 
 # Testing Ground
