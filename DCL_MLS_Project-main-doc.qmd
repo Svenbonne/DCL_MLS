@@ -88,6 +88,9 @@ Age & Frequency \\ \hline
 \end{tabular}
 
 
+## Spaß über LLMs vor GAI
+[ChatGPT Failures](https://github.com/giuven95/chatgpt-failures.git)
+
 # demo stuff
 
 
@@ -145,5 +148,3 @@ print(x)
 ```
 <!-- Text -->
 
-## Spaß über LLMs vor GAI
-https://github.com/giuven95/chatgpt-failures.git
