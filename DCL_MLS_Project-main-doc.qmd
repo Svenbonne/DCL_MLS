@@ -36,7 +36,7 @@ Eine detailliertere Beschreibung des Projekts, seiner Ziele und Funktionen.
 Zuerst kann einmal festgehalten werden, dass wir uns im folgenden hauptsächlich mit dem nachfolgenden oft debattierten Paper: XXXXX beschäftigen.
 
 ## ParrotsParadox
-hier das Paradoxon einleiten maybe mit IDS Knowledge
+Einige Nutzer von LLMs haben bemerkt, dass LLMs nicht zwingend immer Kausalität erkennen können und sie z.B. auf einfache kausale Fragen falsch antworten.
 
 ## Beitrag
 hier evtl. Haupteil
