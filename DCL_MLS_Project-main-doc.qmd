@@ -18,7 +18,7 @@ date: "30. Juni 2024"
 ---
 <!-- format: pptx -->
 AKTUALISIERUNGSDATUM <br>
-24. Juni 2024
+26. Juni 2024
 
 
 ## Inhaltsverzeichnis
@@ -27,7 +27,7 @@ AKTUALISIERUNGSDATUM <br>
 3. [Parrots Paradox](#parrotsparadox)
 4. [Beitrag](#beitrag)
 5. [Schlussbetrachtung](#schlussbetrachtung)
-6. [Lizenz](#lizenz)
+6. [Referenzen](#referenzen)
 
 ## Einleitung
 Eine detailliertere Beschreibung des Projekts, seiner Ziele und Funktionen.
