@@ -109,5 +109,5 @@ Auch hier konnte ChatGPT 4 omni jedoch korrekt antworten und hat darauf hingewie
 
 
 ## Schlussbetrachtung
-eventuell elegant abschließen?
+eventuell elegant abschließen? - nicht hier!
 
