@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.47">
+<meta name="generator" content="quarto-1.4.554">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -36,7 +36,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -142,7 +142,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="#einleitung">Einleitung</a></li>
 <li><a href="#grundlagen">Grundlagen</a></li>
 <li><a href="#parrotsparadox">Parrots Paradox</a></li>
-<li><a href="#beitrag">Beitrag</a></li>
+<li><a href="#hauptteil">Eigene Untersuchungen</a></li>
 <li><a href="#schlussbetrachtung">Schlussbetrachtung</a></li>
 <li><a href="#referenzen">Referenzen</a></li>
 </ol>
@@ -159,16 +159,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="parrotsparadox">ParrotsParadox</h2>
 <p>Einige Nutzer von LLMs haben bemerkt, dass LLMs nicht zwingend immer Kausalität erkennen können und sie z.B. auf einfache kausale Fragen falsch antworten. In unserem Repository haben wir einige Fälle gesammelt, die zweifelhafte kausale Fähigkeiten von Chat GPT aufzeigen. Außerdem haben wir auch aus der Litertur bekannte Fragen, bei denen LLMs schonmal gescheitert sind, überprüft. Generell kann ChatGPT 4.0 und auch bedingt Chat GPT 3.5 Turbo diese Fragen gut beantworten, was aber nicht an dem kausalen Verständnis liegen muss, da diese Cases auch anders beantwortet werden könnten. Beispielsweise ist es denkbar, dass OpenAI diese Problem erkannt hat und entschieden hat bekannte Fälle und Fragen, die Sie von Nutzern mitbekommen, direkt z.B. durch “hardcoden” entfernen könnten. Außerdem könnten solche Fälle auch in den Trainingsdaten insbesondere von neueren LLMs vorhanden sein.</p>
 </section>
-<section id="beitrag-mls" class="level2">
-<h2 class="anchored" data-anchor-id="beitrag-mls">Beitrag MLS</h2>
-<p>hier evtl. Haupteil</p>
-<section id="subsection-01" class="level3">
-<h3 class="anchored" data-anchor-id="subsection-01">Subsection 01</h3>
-<p>Hallo</p>
+<section id="hauptteil" class="level2">
+<h2 class="anchored" data-anchor-id="hauptteil">Eigene Untersuchungen</h2>
+<p>Wir haben uns dann weiterhin damit beschäftigt, wie die beiden Versionen von UHHGPT, nämlich ChatGPT 3.5 Turbo und ChatGPT 4 omni, die Bechmarks erfüllt, die das Paper vorgeschlagen hat.</p>
+<section id="paper---beispielfragen" class="level3">
+<h3 class="anchored" data-anchor-id="paper---beispielfragen">Paper - Beispielfragen</h3>
+<p>Dazu haben wir zunächst die Fälle ausprobiert, die in dem Paper vorgestellt wurden. Dabei werden ChatGPT immer Sätze vorgelegt und darf immer nur mit “True” oder “False” antworten. Den ersten Fall und die Antwort von ChatGPT 3.5 Turbo kann man im folgenden Bild sehen: <img src="LLM Fails\Edge Cases\Fail heights.png" align="center" width="100%"> Da Bob Höhenangst hat, wäre die logische Konsequenz daraus, dass er bei der Wahl zwischen dem Riesenrad und dem Karussell das Riesenrad vermeiden würde. ChatGPT 3.5 Turbo ist in diesem Fall nicht dazu in der Lage gewesen, diesen kausalen Zusammenhang zwischen Höhenangst und dem Riesenrad zu ziehen, dass Bob durch das Riesenrad in die Höhe transportiert würde, was seine Höhenangst auslösen würde und er aus genau diesem Grund das Karussell dem Riesenrad vorziehen würde. ChatGPT 4 omni hingegen hat diesen Fall richtig gelöst.<br>
+Tatsächlich sind wir dabei auch auf einen interessanten Fehler gestoßen. ChatGPT 4 omni hat bislang sehr gute Ergebnisse geliefert und hat bei keiner Frage, die wir ausgetestet haben, falsche Ergebnisse geliefert. So auch zuerst bei diesem Fall, der ebenfalls aus dem untersuchten Paper stammt: <img src="LLM Fails\Academic Paper Cases\fish correct.png" align="center" width="100%"> Da Sammy mit 10 Fischen rechnen würde, wäre er folglich bei 40 Fischen sehr erfreut und bei nur 5 Fischen vermutlich enttäuscht. Das hat ChatGPT 4 omni ohne Probleme hinbekommen. Interessanterweise ist uns aufgefallen, dass, sobald man den Namen von Sammy klein schreibt, ChatGPT 4 omni nicht mehr in der Lage ist, dies richtig zu lösen, wie man hier sehen kann: <img src="LLM Fails\Academic Paper Cases\4.0 Fail.png" align="center" width="100%"> Hier ist es also eventuell der Fall, dass ChatGPT nicht mehr in der Lage ist, zu identifizieren, dass es sich bei Sammy um eine Person handelt, weshalb hier dann kein logischer Zusammenhang erkannt werden kann.</p>
 </section>
-<section id="subsection-02" class="level3">
-<h3 class="anchored" data-anchor-id="subsection-02">Subsection 02</h3>
-<p>Tschüss</p>
+<section id="eigene-ideen-und-bekannte-fälle" class="level3">
+<h3 class="anchored" data-anchor-id="eigene-ideen-und-bekannte-fälle">Eigene Ideen und bekannte Fälle</h3>
+<p>Desweiteren haben wir andere Fälle ausgetestet, die in der Vergangenheit aufgefallen sind, da ChatGPT sie nicht korrekt beantworten konnte und haben auch eigene Ideen ausgetestet, um zu prüfen, ob ChatGPT hier in der Lage dazu ist, kausale Zusammenhänge zu erkennen.<br>
+Im ersten Beispiel geht es um das Thema Fußball: <img src="LLM Fails\Edge Cases\3.5 Fail Fussball.png" align="center" width="100%"> In diesem Fall ist ChatGPT 3.5 der Logik gefolgt, dass es hier eine einfache transitive Eigenschaft gibt, dass wenn Team A Team B besiegt und Team C Team A besiegt, Team C ja folglich besser sein müsste als Team B und somit auch Team B besiegen müsste. Dies ist allerdings beim Thema Fußball keine gegebene Eigenschaft, da die Teams verschiedene Spieltaktiken nutzen, die bei manchen Teams ein Schwachpunkt darstellen, von anderen Spieltaktiken jedoch ausgekontert werden. Das kann man z.B. auch gut in der EM betrachten. Deutschland hat z.B. 5:1 gegen Schottland gespiel. Da Schottland 1:1 gegen die Schweiz gespielt hat, müsste aus der Logik von ChatGPT 3.5 Deutschland auch deutlich gegen die Schweiz gewinnen, hier kam jedoch nur ein knappes Unentschieden zustande. Auch hier hat ChatGPT 4 omni jedoch die Nase vorne und konnte auch diese Frage richtig beantworten.<br>
+Ein weiteres Beispiel kann hier gesehen werden: <img src="LLM Fails\Edge Cases\Fail Box.png" align="center" width="100%"> In der Fragestellung wird formuliert, dass es in einer blauen Box ein Apfel und eine rote Box mit einem Deckel gibt. Einem Menschen würde dabei sofort auffallen, dass folglich der Apfel einfach aus der blauen Box entnommen werden kann. ChatGPT 3.5 Turbo hingegen hat es hier jedoch nicht geschafft, diesen Zusammenhang zu erkennen - wir vermuten, dass das der Fall ist, da so genau beschrieben wurde, dass die rote Box einen Deckel hat, und dieser roten Box deswegen ein zu großer Wert für die Beantwortung der Frage beigemessen wurde.<br>
+Auch hier konnte ChatGPT 4 omni jedoch korrekt antworten und hat darauf hingewiesen, dass die rote Box gar keine Rolle spielen würde, wenn man an den Apfel gelangen möchte.</p>
 </section>
 </section>
 <section id="schlussbetrachtung" class="level2">
@@ -310,7 +314,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -342,29 +357,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -372,7 +365,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
