@@ -13,7 +13,7 @@ author:
   - name: "Jannik Svenson"
     affiliation: "HWI Hamburg"
     email: "jannik.svenson@studium.uni-hamburg.de"
-date: "30. Juni 2024"
+date: "10. Juli 2024"
 ---
 <!-- <a href="https://digitalcausalitylab.github.io/"><img src="figures/logo.png" align="right" width = "120" /></a>-->
 <a href="https://digitalcausalitylab.github.io/">
@@ -21,7 +21,7 @@ date: "30. Juni 2024"
 </a>
 <!-- format: pptx -->
 
-AKTUALISIERUNGSDATUM <br> 26. Juni 2024
+AKTUALISIERUNGSDATUM <br> 28. Juni 2024
 
 ## Inhaltsverzeichnis
 
