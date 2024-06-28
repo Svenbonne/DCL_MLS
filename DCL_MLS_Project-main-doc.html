@@ -122,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">30. Juni 2024</p>
+      <p class="date">10. Juli 2024</p>
     </div>
   </div>
   
@@ -136,7 +136,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <!-- <a href="https://digitalcausalitylab.github.io/"><img src="figures/logo.png" align="right" width = "120" /></a>-->
 <p><a href="https://digitalcausalitylab.github.io/"> <img src="figures/logo.png" align="right" width="240" style="position: relative; top: -164px;right: -0px;"> </a> <!-- format: pptx --></p>
-<p>AKTUALISIERUNGSDATUM <br> 26. Juni 2024</p>
+<p>AKTUALISIERUNGSDATUM <br> 28. Juni 2024</p>
 <section id="inhaltsverzeichnis" class="level2">
 <h2 class="anchored" data-anchor-id="inhaltsverzeichnis">Inhaltsverzeichnis</h2>
 <ol type="1">
@@ -156,7 +156,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="zusammenfassung-des-zugrundeliegenden-artikels" class="level2">
 <h2 class="anchored" data-anchor-id="zusammenfassung-des-zugrundeliegenden-artikels">Zusammenfassung des zugrundeliegenden Artikels</h2>
 <p>In der Einleitung des Artikels werden zuerst kausale Hierarchien eingeführt, also verschiedene, auf einander aufbauende Ebenen kausaler Asusagen. Mit zunehmender Höhe auf der Hierachie nimmt auch die Komplexität der Aufgaben zu, die vom LLM ausgeführt werden können sollen. Es werden zwei dieser Hierachien vorgestellt, die erste von Zhang et al.&nbsp;(2023), welche aus drei Ebenen besteht: <br> 1. <a href="#typ1">Typ 1</a> Kausale Aussagen aufgrund von Informationen über Situation und Umgebung treffen. <br> 2. <a href="#typ2">Typ 2</a> Aufgrund von Daten neues Wissen entdecken. <br> 3. <a href="#typ3">Typ 3</a> Quantitaive Auswirkungen von Aktionen vorhersagen. <br></p>
-<p>Laut dem Artikel können die meisten aktuellen Modelle den ersten Typ problemlos ausführen, haben allerdings Probleme mit den Typen 2 und 3(, allerdings ist zweifelhaft, wie aktuell diese Aussage mittlerweile ist). Die zweite vorgestellte Hierarchie, beschrieben als “Leiter der Kausalität”, besteht ebenfalls aus drei Stufen: 1. <a href="#sehen">Sehen</a> Grundlegende statistische Zusammenhänge erkennen und beschreiben. 2. <a href="#handeln">Handeln</a> Effekte einer bestimmten Aktion vorhersagen. 3. <a href="#vorstellen">Vorstellen</a> Aussagen über alternative oder faktenwidrige Resultate tätigen.</p>
+<p>Laut dem Artikel können die meisten aktuellen Modelle den ersten Typ problemlos ausführen, haben allerdings Probleme mit den Typen 2 und 3 (allerdings ist mittlerweile zweifelhaft, wie aktuell und korrekt diese Aussage ist). Die zweite vorgestellte Hierarchie, beschrieben als “Leiter der Kausalität”, besteht ebenfalls aus drei Stufen: <br> 1. <a href="#sehen">Sehen</a> Grundlegende statistische Zusammenhänge erkennen und beschreiben. <br> 2. <a href="#handeln">Handeln</a> Effekte einer bestimmten Aktion vorhersagen. <br> 3. <a href="#vorstellen">Vorstellen</a> Aussagen über alternative oder faktenwidrige Resultate tätigen. <br></p>
 <p>Hier wird erneut festgestellt, dass die meisten Modelle nur die erste Stufe der Leiter erreichen.</p>
 <p>Anschließend wurde eine Literatur-Recherche durchgeführt, und verschiedene Ansätze für das Benchmarking von kausaler Aussagefähigkeit verglichen und bewertet. Hierfür wurden zuerst solche Tests untersucht, welche kausale Aussagefähigkeit aufgrund von kontextualen Fragen bewertet haben. Yang et al.&nbsp;kritisieren, dass in diesen Fällen die Möglichkeiten des LLm’s eingeschränkt werden, indem es beispielsweise nur zwischen den Optionen “Ursache” und “Wirkung” wählen muss - in manchen Fällen mit noch mehr Optionen - und dem Modell so bereits Optionen vorgegeben werden, wodurch kausale Aussagefähigkeit unzureichend getestet wird. Außerdem wurde vorgebracht, dass in einigen Fällen, die Leistung des Modells auf die Wahl der Sprache zurückzuführen ist, da mit leicht abgeänderter oder verallgemeinerter Sprache schlechtere Ergebnisse erziehlt wurden.</p>
 <p>Darauffolgend wurde darauf hingewiesen, dass die Fähigkeit intuitive Aussagen zu treffen, wie ein Mensch sie mit “gesundem Menschenverstand” tätigen würde, eine notwendige, aber keine hinreichende Bedingung für kausale Aussagefähigkeit ist. Meistens würden die Modelle vorhandes Wissen Abrufen, und keine neuen Aussagen treffen.</p>
