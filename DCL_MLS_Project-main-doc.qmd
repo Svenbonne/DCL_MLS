@@ -36,9 +36,15 @@ In diesem Projekt wird sich mit den kausalen Inferenzfähigkeiten von Large Lang
 
 ## Zusammenfassung des zugrundeliegenden Artikels
 
-In der Einleitung des Artikels werden zuerst kausale Hierarchien eingeführt, also verschiedene, auf einander aufbauende Ebenen kausaler Asusagen. Mit zunehmender Höhe auf der Hierachie nimmt auch die Komplexität der Aufgaben zu, die vom LLM ausgeführt werden können sollen. Es werden zwei dieser Hierachien vorgestellt, die erste von Zhang et al. (2023), welche aus drei Ebenen besteht: 1. [Typ 1](#typ1) Kausale Aussagen aufgrund von Informationen über Situation und Umgebung treffen. 2. [Typ 2](#typ2) Aufgrund von Daten neues Wissen entdecken. 3. [Typ 3](#typ3) Quantitaive Auswirkungen von Aktionen vorhersagen.
+In der Einleitung des Artikels werden zuerst kausale Hierarchien eingeführt, also verschiedene, auf einander aufbauende Ebenen kausaler Asusagen. Mit zunehmender Höhe auf der Hierachie nimmt auch die Komplexität der Aufgaben zu, die vom LLM ausgeführt werden können sollen. Es werden zwei dieser Hierachien vorgestellt, die erste von Zhang et al. (2023), welche aus drei Ebenen besteht: 
+1. [Typ 1](#typ1) Kausale Aussagen aufgrund von Informationen über Situation und Umgebung treffen. 
+2. [Typ 2](#typ2) Aufgrund von Daten neues Wissen entdecken. 
+3. [Typ 3](#typ3) Quantitaive Auswirkungen von Aktionen vorhersagen.
 
-Laut dem Artikel können die meisten aktuellen Modelle den ersten Typ problemlos ausführen, haben allerdings Probleme mit den Typen 2 und 3(, allerdings ist zweifelhaft, wie aktuell diese Aussage mittlerweile ist). Die zweite vorgestellte Hierarchie, beschrieben als "Leiter der Kausalität", besteht ebenfalls aus drei Stufen: 1. [Sehen](#sehen) Grundlegende statistische Zusammenhänge erkennen und beschreiben. 2. [Handeln](#handeln) Effekte einer bestimmten Aktion vorhersagen. 3. [Vorstellen](#vorstellen) Aussagen über alternative oder faktenwidrige Resultate tätigen.
+Laut dem Artikel können die meisten aktuellen Modelle den ersten Typ problemlos ausführen, haben allerdings Probleme mit den Typen 2 und 3(, allerdings ist zweifelhaft, wie aktuell diese Aussage mittlerweile ist). Die zweite vorgestellte Hierarchie, beschrieben als "Leiter der Kausalität", besteht ebenfalls aus drei Stufen: 
+1. [Sehen](#sehen) Grundlegende statistische Zusammenhänge erkennen und beschreiben. 
+2. [Handeln](#handeln) Effekte einer bestimmten Aktion vorhersagen. 
+3. [Vorstellen](#vorstellen) Aussagen über alternative oder faktenwidrige Resultate tätigen.
 
 Hier wird erneut festgestellt, dass die meisten Modelle nur die erste Stufe der Leiter erreichen.
 
