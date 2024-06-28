@@ -26,8 +26,9 @@ After you've completed the previously described steps, please remove the content
 - [ ] Please include the title of your case study; an overview of all case studies is available [here](https://github.com/DigitalCausalityLab/causal-case-studies/issues)
 
 ### Participants
-
-- [ ] Please list the names and GitHub user names here
+- Alexander Lorenz
+- Jannik Svenson
+- Lucas Mandelik
 
 ### Abstract
 
@@ -63,7 +64,7 @@ Während des Data Science Moduls Kausale Inferenz wurden wir ermutigt ein eigene
 - [jannik.svenson@studium.uni-hamburg.de](mailto:jannik.svenson@studium.uni-hamburg.de)
 
 ## Datum
-Datum der letzten Aktualisierung: 24. Juni 2024
+Datum der letzten Aktualisierung: 26. Juni 2024
 
 ## Inhaltsverzeichnis
 1. [Einleitung](#einleitung)
@@ -82,16 +83,30 @@ Zuerst kann einmal festgehalten werden, dass wir uns im folgenden hauptsächlich
 ## ParrotsParadox
 hier das Paradoxon einleiten maybe mit IDS Knowledge
 
-## Beitrag
-hier evtl. Haupteil
+## Hauptteil
+Wir haben uns dann weiterhin damit beschäftigt, wie die beiden Versionen von UHHGPT, nämlich ChatGPT 3.5 Turbo und ChatGPT 4 omni, die Bechmarks erfüllt, die das Paper vorgeschlagen hat.  
 
-### Subsection 01
+### Paper - Beispielfragen
+Dazu haben wir zunächst die Fälle ausprobiert, die in dem Paper vorgestellt wurden. Dabei werden ChatGPT immer Sätze vorgelegt und darf immer nur mit "True" oder "False" antworten. Den ersten Fall und die Antwort von ChatGPT 3.5 Turbo kann man im folgenden Bild sehen:
+<img src="LLM Fails\Edge Cases\Fail heights.png" align="center" width = "\textwidth" />
+Da Bob Höhenangst hat, wäre die logische Konsequenz daraus, dass er bei der Wahl zwischen dem Riesenrad und dem Karussell das Riesenrad vermeiden würde. ChatGPT 3.5 Turbo ist in diesem Fall nicht dazu in der Lage gewesen, diesen kausalen Zusammenhang zwischen Höhenangst und dem Riesenrad zu ziehen, dass Bob durch das Riesenrad in die Höhe transportiert würde, was seine Höhenangst auslösen würde und er aus genau diesem Grund das Karussell dem Riesenrad vorziehen würde. ChatGPT 4 omni hingegen hat diesen Fall richtig gelöst.  
+Tatsächlich sind wir dabei auch auf einen interessanten Fehler gestoßen. ChatGPT 4 omni hat bislang sehr gute Ergebnisse geliefert und hat bei keiner Frage, die wir ausgetestet haben, falsche Ergebnisse geliefert. So auch zuerst bei diesem Fall, der ebenfalls aus dem untersuchten Paper stammt:
+<img src="LLM Fails\Academic Paper Cases\fish correct.png" align="center" width = "\textwidth" />
+Da Sammy mit 10 Fischen rechnen würde, wäre er folglich bei 40 Fischen sehr erfreut und bei nur 5 Fischen vermutlich enttäuscht. Das hat ChatGPT 4 omni ohne Probleme hinbekommen. Interessanterweise ist uns aufgefallen, dass, sobald man den Namen von Sammy klein schreibt, ChatGPT 4 omni nicht mehr in der Lage ist, dies richtig zu lösen, wie man hier sehen kann:
+<img src="LLM Fails\Academic Paper Cases\4.0 Fail.png" align="center" width = "\textwidth" />
+Hier ist es also eventuell der Fall, dass ChatGPT nicht mehr in der Lage ist, zu identifizieren, dass es sich bei Sammy um eine Person handelt, weshalb hier dann kein logischer Zusammenhang erkannt werden kann.
 
-Hallo
+### Eigene Ideen und bekannte Fälle
+Desweiteren haben wir andere Fälle ausgetestet, die in der Vergangenheit aufgefallen sind, da ChatGPT sie nicht korrekt beantworten konnte und haben auch eigene Ideen ausgetestet, um zu prüfen, ob ChatGPT hier in der Lage dazu ist, kausale Zusammenhänge zu erkennen.  
+Im ersten Beispiel geht es um das Thema Fußball:
+<img src="LLM Fails\Edge Cases\3.5 Fail Fussball.png" align="center" width = "\textwidth" />
+In diesem Fall ist ChatGPT 3.5 der Logik gefolgt, dass es hier eine einfache transitive Eigenschaft gibt, dass wenn Team A Team B besiegt und Team C Team A besiegt, Team C ja folglich besser sein müsste als Team B und somit auch Team B besiegen müsste. Dies ist allerdings beim Thema Fußball keine gegebene Eigenschaft, da die Teams verschiedene Spieltaktiken nutzen, die bei manchen Teams ein Schwachpunkt darstellen, von anderen Spieltaktiken jedoch ausgekontert werden. Das kann man z.B. auch gut in der EM betrachten. Deutschland hat z.B. 5:1 gegen Schottland gespiel. Da Schottland 1:1 gegen die Schweiz gespielt hat, müsste aus der Logik von ChatGPT 3.5 Deutschland auch deutlich gegen die Schweiz gewinnen, hier kam jedoch nur ein knappes Unentschieden zustande. Auch hier hat ChatGPT 4 omni jedoch die Nase vorne und konnte auch diese Frage richtig beantworten.  
+Ein weiteres Beispiel kann hier gesehen werden:
+<img src="LLM Fails\Edge Cases\Fail Box.png" align="center" width = "\textwidth" />
+In der Fragestellung wird formuliert, dass es in einer blauen Box ein Apfel und eine rote Box mit einem Deckel gibt. Einem Menschen würde dabei sofort auffallen, dass folglich der Apfel einfach aus der blauen Box entnommen werden kann. ChatGPT 3.5 Turbo hingegen hat es hier jedoch nicht geschafft, diesen Zusammenhang zu erkennen - wir vermuten, dass das der Fall ist, da so genau beschrieben wurde, dass die rote Box einen Deckel hat, und dieser roten Box deswegen ein zu großer Wert für die Beantwortung der Frage beigemessen wurde.  
+Auch hier konnte ChatGPT 4 omni jedoch korrekt antworten und hat darauf hingewiesen, dass die rote Box gar keine Rolle spielen würde, wenn man an den Apfel gelangen möchte. 
 
-### Subsection 02
 
-Tschüss
 
 ## Schlussbetrachtung
 eventuell elegant abschließen?
