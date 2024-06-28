@@ -14,12 +14,10 @@ author:
     affiliation: "HWI Hamburg"
     email: "jannik.svenson@studium.uni-hamburg.de"
 date: "30. Juni 2024"
-
 ---
 <!-- format: pptx -->
 AKTUALISIERUNGSDATUM <br>
 26. Juni 2024
-
 
 ## Inhaltsverzeichnis
 1. [Einleitung](#einleitung)
