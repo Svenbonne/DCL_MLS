@@ -111,7 +111,9 @@ Zusammenfassend lässt sich sagen, dass die aktuellen LLMs bedeutende Fortschrit
 
 ## Referenzen
 
-[Linying Yang, Vik Shirvaikar, Oscar Clivio & Fabian Falck](https://openreview.net/forum?id=mRwgczYZFJ).
+[Linying Yang, Vik Shirvaikar, Oscar Clivio & Fabian Falck. 2023.](https://openreview.net/forum?id=mRwgczYZFJ)
+
+[Andrew K. Lampinen, Stephanie C. Y. Chan, Ishita Dasgupta, Andrew J. Nam & Jane X. Wang. 2023](https://doi.org/10.48550/arXiv.2305.16183)
 
 ## Anhang
 

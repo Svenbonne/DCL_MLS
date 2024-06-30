@@ -106,8 +106,3 @@ Ein weiteres Beispiel kann hier gesehen werden:
 In der Fragestellung wird formuliert, dass es in einer blauen Box ein Apfel und eine rote Box mit einem Deckel gibt. Einem Menschen würde dabei sofort auffallen, dass folglich der Apfel einfach aus der blauen Box entnommen werden kann. ChatGPT 3.5 Turbo hingegen hat es hier jedoch nicht geschafft, diesen Zusammenhang zu erkennen - wir vermuten, dass das der Fall ist, da so genau beschrieben wurde, dass die rote Box einen Deckel hat, und dieser roten Box deswegen ein zu großer Wert für die Beantwortung der Frage beigemessen wurde.  
 Auch hier konnte ChatGPT 4 omni jedoch korrekt antworten und hat darauf hingewiesen, dass die rote Box gar keine Rolle spielen würde, wenn man an den Apfel gelangen möchte. 
 
-
-
-## Schlussbetrachtung
-eventuell elegant abschließen? - nicht hier!
-
