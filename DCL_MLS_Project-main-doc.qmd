@@ -21,7 +21,7 @@ date: "10. Juli 2024"
 </a>
 <!-- format: pptx -->
 
-AKTUALISIERUNGSDATUM <br> 30. Juni 2024
+AKTUALISIERUNGSDATUM <br> 02. Juli 2024
 
 ## Inhaltsverzeichnis
 
@@ -31,7 +31,9 @@ AKTUALISIERUNGSDATUM <br> 30. Juni 2024
 4.  [Parrots Paradox](#parrotsparadox)
 5.  [Beitrag](#beitrag)
 6.  [Schlussbetrachtung](#schlussbetrachtung)
-7.  [Lizenz](#lizenz)
+7.  [Referenzen](#referenzen)
+8.  [Anhang](#anhang)
+111.  [Lizenz](#lizenz)
 
 ## Einleitung {#einleitung}
 
