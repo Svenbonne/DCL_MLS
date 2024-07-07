@@ -21,7 +21,7 @@ date: "10. Juli 2024"
 </a>
 <!-- format: pptx -->
 
-AKTUALISIERUNGSDATUM <br> 02. Juli 2024
+AKTUALISIERUNGSDATUM <br> 07. Juli 2024
 
 ## Inhaltsverzeichnis
 
@@ -100,7 +100,7 @@ Wenn man anschließend Gemini die Ergebnisse von einer fiktiven Viertelfinalrund
 Dieses Turnierbeispiel lies sich in einem neuen Chat reproduzieren, auch wenn hier dann andere Teams (die ersten beiden Gewinner) Finalisten laut Gemini wären. Die Gothenburg Kickers und der TuS Hoisdorf kommen nurnoch bedingt in Geminis Turnierbetrachtungen vor und das Ergebnis USC Ahrensburg 3:0 USC Aarhus wird komplett misinterpretiert.
 <img src="LLM Fails\Edge Cases\Turnier confusion^3 - völliges wirrwarr.png" align="center" width = 100% />
 
-Dieses Turnierbeispiel hat ChatGPT 4.0 omni komplett durchschaut und korrekt beanwortet, wohingegen ChatGPT 3.5 Turbo unbeholfen das gesammte noch verbleibende Turnier vorraussagt.
+Dieses Turnierbeispiel hat ChatGPT 4.0 omni komplett durchschaut und korrekt beanwortet, wohingegen ChatGPT 3.5 Turbo unbeholfen das gesamte noch verbleibende Turnier vorraussagt und die Mannschaft aus Göteborg zum Sieger ernennt.
 <img src="LLM Fails\Edge Cases\Turnier confusion ChatGPT 3.5 Turbok.png" align="center" width = 100% />
 
 

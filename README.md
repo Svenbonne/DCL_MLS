@@ -21,9 +21,9 @@ Participants of the [Digital Causality Lab](https://digitalcausalitylab.github.i
 
 After you've completed the previously described steps, please remove the content above. Include the following information in this readme file:
 
-### Title of Case Study
+### Causal Capabilities of LLMs in June-Juli 2024
 
-- [ ] Please include the title of your case study; an overview of all case studies is available [here](https://github.com/DigitalCausalityLab/causal-case-studies/issues)
+- an overview of the Digital Causality Lab (DCL) case studies is available [here](https://github.com/DigitalCausalityLab/causal-case-studies/issues)
 
 ### Participants
 - Alexander Lorenz
