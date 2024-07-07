@@ -81,7 +81,7 @@ Wir haben uns dann weiterhin damit beschäftigt, wie die beiden Versionen von UH
 ### Paper - Beispielfragen
 Dazu haben wir zunächst die Fälle ausprobiert, die in dem Paper vorgestellt wurden. Dabei werden ChatGPT immer Sätze vorgelegt und darf immer nur mit "True" oder "False" antworten. Den ersten Fall und die Antwort von ChatGPT 3.5 Turbo kann man im folgenden Bild sehen:
 <img src="LLM Fails\Edge Cases\Fail heights.png" align="center" width = 100% />
-Da Bob Höhenangst hat, wäre die logische Konsequenz daraus, dass er bei der Wahl zwischen dem Riesenrad und dem Karussell das Riesenrad vermeiden würde. ChatGPT 3.5 Turbo ist in diesem Fall nicht dazu in der Lage gewesen, diesen kausalen Zusammenhang zwischen Höhenangst und dem Riesenrad zu ziehen. Bob würde durch das Riesenrad in die Höhe transportiert, was seine Höhenangst auslösen würde und er aus genau diesem Grund konswquenterweise das Karussell dem Riesenrad vorziehen würde. ChatGPT 4 omni hingegen hat diesen Fall richtig gelöst.  
+Da Bob Höhenangst hat, wäre die logische Konsequenz daraus, dass er bei der Wahl zwischen dem Riesenrad und dem Karussell das Riesenrad vermeiden würde. ChatGPT 3.5 Turbo ist in diesem Fall nicht dazu in der Lage gewesen, diesen kausalen Zusammenhang zwischen Höhenangst und dem Riesenrad zu ziehen. Bob würde durch das Riesenrad in die Höhe transportiert, was seine Höhenangst auslösen würde und er aus genau diesem Grund konswquenterweise das Karussell dem Riesenrad vorziehen würde. ChatGPT 4 omni und Googles Gemini hingegen haben diesen Fall richtig gelöst.  
 Tatsächlich sind wir dabei auch auf einen interessanten Fehler gestoßen. ChatGPT 4 omni hat bislang sehr gute Ergebnisse geliefert und hat bei keiner Frage, die wir ausgetestet haben, falsche Ergebnisse geliefert. So auch zuerst bei diesem Fall, der ebenfalls aus dem untersuchten Paper stammt:
 <img src="LLM Fails\Academic Paper Cases\fish correct.png" align="center" width = 100% />
 Da Sammy mit 10 Fischen rechnen würde, wäre er folglich bei 40 Fischen sehr erfreut und bei nur 5 Fischen vermutlich enttäuscht. Das hat ChatGPT 4 omni ohne Probleme hinbekommen. Interessanterweise ist uns aufgefallen, dass, sobald man den Namen von Sammy klein schreibt, ChatGPT 4 omni nicht mehr in der Lage ist, dies richtig zu lösen, wie man hier sehen kann:
@@ -97,6 +97,9 @@ Ein weiteres Beispiel kann hier gesehen werden:
 <img src="LLM Fails\Edge Cases\Fail Box.png" align="center" width = 100% />
 In der Fragestellung wird formuliert, dass es in einer blauen Box ein Apfel und eine rote Box mit einem Deckel gibt. Einem Menschen würde dabei sofort auffallen, dass folglich der Apfel einfach aus der blauen Box entnommen werden kann. ChatGPT 3.5 Turbo hingegen hat es hier jedoch nicht geschafft, diesen Zusammenhang zu erkennen - wir vermuten, dass das der Fall ist, da so genau beschrieben wurde, dass die rote Box einen Deckel hat, und dieser roten Box deswegen ein zu großer Wert für die Beantwortung der Frage beigemessen wurde.  
 Auch hier konnte ChatGPT 4 omni jedoch korrekt antworten und hat darauf hingewiesen, dass die rote Box gar keine Rolle spielen würde, wenn man an den Apfel gelangen möchte. 
+
+Gemini hat hier in etwa die Mitte der beiden ChatGPT Versionen getroffen und begründet, dass man nur die blaue Box öffnen muss damit, dass die rote Box einen Deckel hat, was zwar nicht falsch ist, aber keine korrekte Begründung darstellt.
+<img src="LLM Fails\Edge Cases\box confusion Gemini.png" align="center" width = 100% />
 
 ## Schlussbetrachtung {#schlussbetrachtung}
 
