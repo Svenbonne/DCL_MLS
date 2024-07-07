@@ -97,9 +97,11 @@ In diesem Fall ist ChatGPT 3.5 der Logik gefolgt, dass es hier eine einfache tra
 
 Wenn man anschließend Gemini die Ergebnisse von einer fiktiven Viertelfinalrunde des Turniers gibt und nach den zwei Finalisten fragt, gibt Gemini klar zwei Finalisten aus, obwohl die fiktiven Ergebnisse in normalen Turnieren klar noch ein Halbfinale erfordern. Auf mehrfache Nachfrage konnte Gemini die Halbfinalisten korrekt nennen und begründen und hat sich für diesen Finalisten Fehler entschuldigt, nachdem Gemini zunächst vorgab die Begriffe Finalist und Semi-Finalist nicht klar getrennt zu haben.
 <img src="LLM Fails\Edge Cases\Turnier confusion^2 Gemini.png" align="center" width = 100% />
-Dieses Turnierbeispiel lies sich in einem neuen Chat reproduzieren, auch wenn hier dann andere Teams (die ersten beiden Gewinner) Finalisten laut Gemini wären. Die Gothenburg Kickers und der TuS Hoisdorf kommen garnicht mehr in Geminis Turnierbetrachtungen vor und das Ergebnis USC Ahrensburg 3:0 USC Aarhus wird komplett misinterpretiert.
+Dieses Turnierbeispiel lies sich in einem neuen Chat reproduzieren, auch wenn hier dann andere Teams (die ersten beiden Gewinner) Finalisten laut Gemini wären. Die Gothenburg Kickers und der TuS Hoisdorf kommen nurnoch bedingt in Geminis Turnierbetrachtungen vor und das Ergebnis USC Ahrensburg 3:0 USC Aarhus wird komplett misinterpretiert.
 <img src="LLM Fails\Edge Cases\Turnier confusion^3 - völliges wirrwarr.png" align="center" width = 100% />
 
+Dieses Turnierbeispiel hat ChatGPT 4.0 omni komplett durchschaut und korrekt beanwortet, wohingegen ChatGPT 3.5 Turbo unbeholfen das gesammte noch verbleibende Turnier vorraussagt.
+<img src="LLM Fails\Edge Cases\Turnier confusion ChatGPT 3.5 Turbok.png" align="center" width = 100% />
 
 
 Ein weiteres Beispiel kann hier gesehen werden:
