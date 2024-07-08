@@ -19,3 +19,7 @@ ChatGPT 4 Omni outperformed its predecessor, ChatGPT 3.5 Turbo, and also Gemini 
 However, even though even ChatGPT 4 Omni will probably also have problems with some causal questions, it is hard to find these special cases. Also it is hard to distinguish between a better causal understanding in general, if ChatGPT 4.0 Omni can now answer questions that ChatGPT 3.5 Turbo used to answer incorrectly, or if this is just hardcoding of these special cases. (This is only known by OpenAI.) Issues like that definetly make it harder to test for causal inference capabilities of LLMs. 
 These findings highlight the need for further research and robust evaluation methods to enhance LLMs. Future models should not only replicate existing causal information but also discover and accurately interpret new causal relationships. 
 
+### References
+[Linying Yang, Vik Shirvaikar, Oscar Clivio & Fabian Falck. 2023.](https://openreview.net/forum?id=mRwgczYZFJ)  
+[Andrew K. Lampinen, Stephanie C. Y. Chan, Ishita Dasgupta, Andrew J. Nam & Jane X. Wang. 2023](https://doi.org/10.48550/arXiv.2305.16183)
+
