@@ -1,6 +1,6 @@
 # Causal Reasoning of LLMs <a href="https://digitalcausalitylab.github.io/"><img src="figures/logo.png" align="right" width = "120" /></a>
 
-This repository is created for the group project for the [Digital Causality Lab](https://digitalcausalitylab.github.io/).
+This repository is created as a group project for the [Digital Causality Lab](https://digitalcausalitylab.github.io/).
 
 ### Participants
 
@@ -15,6 +15,6 @@ This repository is created for the group project for the [Digital Causality Lab]
 
 ### Current State and Call for Extension
 
-- [ ] Briefly summarize the state of your data product as of the end of the course
-- [ ] Briefly summarize what could be added or improved in the future
+- [Summary and Experimentation with popular current LLM Models] Briefly summarize the state of your data product as of the end of the course
+- [Update findigs and test popular LLMs again or other + deeper research + maybe make a nice Tool representing Challenges for and Fails of LLMS] Briefly summarize what could be added or improved in the future
 
