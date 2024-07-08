@@ -6,7 +6,7 @@ This repository is created for the group project for the [Digital Causality Lab]
 
 - Alexander Lorenz ([alexander.lorenz@studium.uni-hamburg.de](mailto:alexander.lorenz@studium.uni-hamburg.de))
 - Jannik Svenson ([jannik.svenson@studium.uni-hamburg.de](mailto:jannik.svenson@studium.uni-hamburg.de))
-- Lucas Mandelik [lucas.mandelik@studium.uni-hamburg.de](mailto:lucas.mandelik@studium.uni-hamburg.de)
+- Lucas Mandelik ([lucas.mandelik@studium.uni-hamburg.de](mailto:lucas.mandelik@studium.uni-hamburg.de))
 
 ### Abstract
 
