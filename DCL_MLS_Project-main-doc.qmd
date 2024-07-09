@@ -13,186 +13,100 @@ author:
   - name: "Jannik Svenson"
     affiliation: "HWI Hamburg"
     email: "jannik.svenson@studium.uni-hamburg.de"
-date: "30. Juni 2024"
+date: "10. Juli 2024"
 ---
 
-<!-- format: pptx -->
+<!-- <a href="https://digitalcausalitylab.github.io/"><img src="figures/logo.png" align="right" width = "120" /></a>-->
 
-AKTUALISIERUNGSDATUM <br> 26. Juni 2024
+<a href="https://digitalcausalitylab.github.io/"> <img src="figures/logo.png" align="right" width="240" style="position: relative; top: -164px;right: -0px;"/> </a> <!-- format: pptx -->
+
+AKTUALISIERUNGSDATUM <br> 07. Juli 2024
 
 ## Inhaltsverzeichnis
 
 1.  [Einleitung](#einleitung)
 2.  [Zusammenfassung des zugrundeliegenden Artikels](#zusammenfassung)
-3.  [Grundlagen](#grundlagen)
-4.  [Parrots Paradox](#parrotsparadox)
-5.  [Beitrag](#beitrag)
-6.  [Schlussbetrachtung](#schlussbetrachtung)
-7.  [Lizenz](#lizenz)
+3.  [Parrots Paradox](#parrotsparadox)
+4.  [Beitrag](#beitrag)
+5.  [Schlussbetrachtung](#schlussbetrachtung)
+6.  [Referenzen](#referenzen)
+7.  [Anhang](#anhang)
 
 ## Einleitung {#einleitung}
 
-In diesem Projekt wird sich mit den kausalen Inferenzfähigkeiten von Large Language Models (LLM) befasst. Grundlage hiefür bietet der Artikel "A Critical Review of Causal Reasoning Benchmarks for Large Language Models" von Yang et al. aus dem Dezember 2023. In diesem Artikel werden verschiedene Benchmarks für die Fähigkeit von LLMs geprüft, kausale Inferenzen durchzuführen. Hierfür werden Vorschläge von mehreren Artikeln geprüft. Im nachhinein haben wir einige der vorgeschlagenen Benchmarks an UHHGPT 3.5 Turbo und UHHGPT 4 omni, welche uns durch die Universität zur Verfügung gestellt wurden und auf OpenAI's ChatGPT basieren, getestet.
+In diesem Projekt wird sich mit den kausalen Inferenzfähigkeiten von Large Language Models (LLM) befasst. Grundlage hiefür bietet der Artikel "A Critical Review of Causal Reasoning Benchmarks for Large Language Models" von Yang et al. aus dem Dezember 2023. In diesem Artikel werden verschiedene Benchmarks für die Fähigkeit von LLMs geprüft, kausale Inferenzen durchzuführen. Hierfür werden Vorschläge von mehreren Artikeln geprüft. Im Nachhinein haben wir einige der vorgeschlagenen Benchmarks an UHHGPT 3.5 Turbo und UHHGPT 4 omni, welche uns durch die Universität zur Verfügung gestellt wurden und auf OpenAI's ChatGPT basieren, getestet.
 
-## Zusammenfassung des zugrundeliegenden Artikels
+## Zusammenfassung des zugrundeliegenden Artikels {#zusammenfassung}
 
-In der Einleitung des Artikels werden zuerst kausale Hierarchien eingeführt, also verschiedene, auf einander aufbauende Ebenen kausaler Asusagen. Mit zunehmender Höhe auf der Hierachie nimmt auch die Komplexität der Aufgaben zu, die vom LLM ausgeführt werden können sollen. Es werden zwei dieser Hierachien vorgestellt, die erste von Zhang et al. (2023), welche aus drei Ebenen besteht: 
-1. [Typ 1](#typ1) Kausale Aussagen aufgrund von Informationen über Situation und Umgebung treffen. 
-2. [Typ 2](#typ2) Aufgrund von Daten neues Wissen entdecken. 
-3. [Typ 3](#typ3) Quantitaive Auswirkungen von Aktionen vorhersagen.
+In der Einleitung des Artikels werden zuerst kausale Hierarchien eingeführt, also verschiedene, auf einander aufbauende Ebenen kausaler Aussagen. Mit zunehmender Höhe auf der Hierachie nimmt auch die Komplexität der Aufgaben zu, die vom LLM ausgeführt werden können sollen. Es werden zwei dieser Hierachien vorgestellt, die erste von Zhang et al. (2023), welche aus drei Ebenen besteht: <br> 1. [Typ 1](#typ1): Kausale Aussagen aufgrund von Informationen über Situation und Umgebung treffen. <br> 2. [Typ 2](#typ2): Aufgrund von Daten neues Wissen entdecken. <br> 3. [Typ 3](#typ3): Quantitaive Auswirkungen von Aktionen vorhersagen. <br>
 
-Laut dem Artikel können die meisten aktuellen Modelle den ersten Typ problemlos ausführen, haben allerdings Probleme mit den Typen 2 und 3(, allerdings ist zweifelhaft, wie aktuell diese Aussage mittlerweile ist). Die zweite vorgestellte Hierarchie, beschrieben als "Leiter der Kausalität", besteht ebenfalls aus drei Stufen: 
-1. [Sehen](#sehen) Grundlegende statistische Zusammenhänge erkennen und beschreiben. 
-2. [Handeln](#handeln) Effekte einer bestimmten Aktion vorhersagen. 
-3. [Vorstellen](#vorstellen) Aussagen über alternative oder faktenwidrige Resultate tätigen.
+Laut dem Artikel können die meisten aktuellen Modelle den ersten Typ problemlos ausführen, haben allerdings Probleme mit den Typen 2 und 3 (allerdings ist mittlerweile zweifelhaft, wie aktuell und korrekt diese Aussage ist). Die zweite vorgestellte Hierarchie, beschrieben als "Leiter der Kausalität", besteht ebenfalls aus drei Stufen: <br> 1. [Sehen](#sehen): Grundlegende statistische Zusammenhänge erkennen und beschreiben. <br> 2. [Handeln](#handeln): Effekte einer bestimmten Aktion vorhersagen. <br> 3. [Vorstellen](#vorstellen): Aussagen über alternative oder faktenwidrige Resultate tätigen. <br>
 
 Hier wird erneut festgestellt, dass die meisten Modelle nur die erste Stufe der Leiter erreichen.
 
-Anschließend wurde eine Literatur-Recherche durchgeführt, und verschiedene Ansätze für das Benchmarking von kausaler Aussagefähigkeit verglichen und bewertet. Hierfür wurden zuerst solche Tests untersucht, welche kausale Aussagefähigkeit aufgrund von kontextualen Fragen bewertet haben. Yang et al. kritisieren, dass in diesen Fällen die Möglichkeiten des LLm's eingeschränkt werden, indem es beispielsweise nur zwischen den Optionen "Ursache" und "Wirkung" wählen muss - in manchen Fällen mit noch mehr Optionen - und dem Modell so bereits Optionen vorgegeben werden, wodurch kausale Aussagefähigkeit unzureichend getestet wird. Außerdem wurde vorgebracht, dass in einigen Fällen, die Leistung des Modells auf die Wahl der Sprache zurückzuführen ist, da mit leicht abgeänderter oder verallgemeinerter Sprache schlechtere Ergebnisse erziehlt wurden.
+Anschließend wurde eine Literatur-Recherche durchgeführt, und verschiedene Ansätze für das Benchmarking von kausaler Aussagefähigkeit verglichen und bewertet. Hierfür wurden zuerst solche Tests untersucht, welche kausale Aussagefähigkeit aufgrund von kontextualen Fragen bewertet haben. Yang et al. kritisieren, dass in diesen Fällen die Möglichkeiten des LLMs eingeschränkt werden, indem es beispielsweise nur zwischen den Optionen "Ursache" und "Wirkung" wählen muss - in manchen Fällen mit noch mehr Optionen - und dem Modell so bereits Optionen vorgegeben werden, wodurch kausale Aussagefähigkeit unzureichend getestet wird. [Außerdem wurde vorgebracht, dass in einigen Fällen, die Leistung des Modells auf die Wahl der Sprache zurückzuführen ist, da mit leicht abgeänderter oder verallgemeinerter Sprache schlechtere Ergebnisse erziehlt wurden.]{#zusammenfassung1}
 
-Darauffolgend wurde darauf hingewiesen, dass die Fähigkeit, intuitive Aussagen zu treffen, wie ein Mensch sie mit "gesundem Menschenverstand" tätigen würde, eine notwendige, aber keine hinreichende Bedingung für kausale Aussagefähigkeit ist. Meistens würden die Modelle vorhandes Wissen Abrufen, und keine neuen Aussagen treffen.
+Darauffolgend wurde darauf hingewiesen, dass die Fähigkeit intuitive Aussagen zu treffen, wie ein Mensch sie mit "gesundem Menschenverstand" tätigen würde, eine notwendige, aber keine hinreichende Bedingung für kausale Aussagefähigkeit ist. Meistens würden die Modelle vorhandes Wissen abrufen und keine neuen Aussagen treffen, da deren Trainingsdaten vieles umfassen.
 
-Danach wurde auf Tests eingegangen, die sich mit höheren Levels von kausaler Inferenz beschäftigen. Als Beispiele wurden Geschichten genannt, die fiktive Elemente enthalten, in deren Kontext das LLM kausale Aussagen tätigen mussten. Dies stelle einen besseren und robusteren Test für die Modelle dar, da das Modell nicht nur durch Abruf alter Informationen eine Aussage tätigen kann, den Kontext neu interpretieren muss, entscheiden muss, welche Informationen aus der Geschichte relevant sind und diese zu einer Aussage zusammentragen muss. Ein Element, das gerne für solche Geschichten genutzt wird, ist die Zeitreise.
+Danach wurde auf Tests eingegangen, die sich mit höheren Leveln von kausaler Inferenz beschäftigen. Als Beispiele wurden Geschichten genannt, die fiktive Elemente enthalten, in deren Kontext das LLM kausale Aussagen tätigen mussten. Dies stelle einen besseren und robusteren Test für die Modelle dar, da das Modell nicht nur durch Abruf alter Informationen eine Aussage tätigen kann, den Kontext neu interpretieren muss, entscheiden muss, welche Informationen aus der Geschichte relevant sind und diese zu einer Aussage zusammentragen muss. Ein Element, das gerne für solche Geschichten genutzt wird, ist die Zeitreise.
 
-Eine weitere Gruppe von Tests befasst sich mit DAGs. Besser gesagt mit der Fähigkeit von LLM's zur causal graph discovery. Hier werden dem Modell eine Reihe von Aussagen über bedingte Unabhängigkeit gegeben, aus welchen das Modell einen DAG erstellen soll. Yang et al. schreiben, dass durch diese Art des testens alle drei Stufen der "Leiter der Kausalität" befriedigt werden, da hier Interventionen und faktenwidrige Aussagen miteinbezogen werden. Allerdings wird angemerkt, dass es besser sein könnte, ganze Nomen als Knotenpunkte der DAGs zu verwenden, und nicht nur einfache Buchstaben, da dies selbst für Menschen nicht unbedingt möglich wäre. Ebenfalls wird angemerkt, dass bereits Informationen über die kausalen Ausrichtungen in den Trainingsdaten vorhanden sein könnten, und das Modell somit wieder auf bereits vorhandenes Wissen zurückgreift, also keine kausale Aussage trifft. Selbst wenn man in das Stichwort miteinbezieht, dass sich das Modell eine hypothetische Welt vorstellen soll, ist es zweifelhaft, ob dieser Befehl auch befolgt wird.
+Eine weitere Gruppe von Tests befasst sich mit DAGs. Besser gesagt mit der Fähigkeit von LLMs zur causal graph discovery. Hier werden dem Modell eine Reihe von Aussagen über bedingte Unabhängigkeit gegeben, aus welchen das Modell einen DAG erstellen soll. Yang et al. schreiben, dass durch diese Art des testens alle drei Stufen der "Leiter der Kausalität" befriedigt werden, da hier Interventionen und faktenwidrige Aussagen miteinbezogen werden. Allerdings wird angemerkt, dass es besser sein könnte, ganze Nomen als Knotenpunkte der DAGs zu verwenden, und nicht nur einfache Buchstaben, da dies selbst für Menschen nicht unbedingt möglich wäre. Ebenfalls wird angemerkt, dass bereits Informationen über die kausalen Ausrichtungen in den Trainingsdaten vorhanden sein könnten, und das Modell somit wieder auf bereits vorhandenes Wissen zurückgreift, also keine kausale Aussage trifft. Selbst wenn man in das Stichwort miteinbezieht, dass sich das Modell eine hypothetische Welt vorstellen soll, ist es zweifelhaft, ob dieser Befehl auch befolgt wird.
 
-Thema des nächsten Teils ist die Qualität der Designs der Experimente, mit denen die LLM's getestet wurden. Zunächst wurde kritisiert, dass vermehrt ungeeignete Metriken zur Bewertung der Güte oder Genauigkeit der kausalen Aussage genutzt wurden. Beispielsweise wurde in einigen Fällen gemessen, wie genau die Syntax der Aussage mit der "richtigen" Antwort übereinstimmte. Dies sei nicht geeignet, da die selbe kausale Aussage mit unterschiedlcihster Syntax formuliert werden könne. Hier bedürfe es weiterer Forschung, um geeignete Metriken herauszuarbeiten.
-Eine weitere Schwierigkeit bestehe darin, dass man nicht sicher sein könne, dass die Aufgaben und Fragen, die man dem LLM stellte, um die kausale Aussagefähigkeit zu testen, nicht bereits im Trainingsdatensatz vorhanden waren. Als Beispiel wurde genannt, dass GPT-3.5 und GPT-4 Teile von Problemen bereits kannten die zum testen genutzt wurden.
-Darüber hinaus nutzten einige Studien Methoden zum testen der kausalen Inferenzfähigkeit, die laut Yang et al. nichts mit Kausalität zu tun hätten, sondern beispielsweise mit Grammatik.
+Thema des nächsten Teils ist die Qualität der Designs der Experimente, mit denen die LLMs getestet wurden. Zunächst wurde kritisiert, dass vermehrt ungeeignete Metriken zur Bewertung der Güte oder Genauigkeit der kausalen Aussage genutzt wurden. Beispielsweise wurde in einigen Fällen gemessen, wie genau die Syntax der Aussage mit der "richtigen" Antwort übereinstimmte. Dies sei nicht geeignet, da die selbe kausale Aussage mit unterschiedlcihster Syntax formuliert werden könne. Hier bedürfe es weiterer Forschung, um geeignete Metriken herauszuarbeiten. Eine weitere Schwierigkeit bestehe darin, dass man nicht sicher sein könne, dass die Aufgaben und Fragen, die man dem LLM stellte, um die kausale Aussagefähigkeit zu testen, nicht bereits im Trainingsdatensatz vorhanden waren. Als Beispiel wurde genannt, dass GPT-3.5 und GPT-4 Teile von Problemen bereits kannten die zum testen genutzt wurden. Darüber hinaus nutzten einige Studien Methoden zum testen der kausalen Inferenzfähigkeit, die laut Yang et al. nichts mit Kausalität zu tun hätten, sondern beispielsweise mit Grammatik.
 
-Schlussendlich wurden die wichtigsten Erkenntnisse der Arbeit herausgearbeitet. LLM'S müssen Interventionen oder faktenwidrige Ereignisse miteinbeziehen und wiedergeben können. Sie müssen in der Lage sein, offene Antworten zu geben und nicht nur zwischen vorgegebenen Optionen wählen können. Sie dürfen sich nicht auf den Abruf von Informationen aus ihrem Trainingsdatensatz verlassen. Schließlich sollte ein Test für ein LLM skalierbar sein, um die kausale Aussagefähigkeit am selben kausalen Zusammenhang auf unterschiedlichen Ebenen zu testen.
-
-## Grundlagen {#grundlagen}
-
-Zuerst kann einmal festgehalten werden, dass wir uns im folgenden hauptsächlich mit dem nachfolgenden oft debattierten Paper: XXXXX beschäftigen.
+Schlussendlich wurden die wichtigsten Erkenntnisse der Arbeit herausgearbeitet. LLMs müssen Interventionen oder faktenwidrige Ereignisse miteinbeziehen und wiedergeben können. Sie müssen in der Lage sein, offene Antworten zu geben und nicht nur zwischen vorgegebenen Optionen wählen können. Sie dürfen sich nicht auf den Abruf von Informationen aus ihrem Trainingsdatensatz verlassen. Schließlich sollte ein Test für ein LLM skalierbar sein, um die kausale Aussagefähigkeit am selben kausalen Zusammenhang auf unterschiedlichen Ebenen zu testen.
 
 ## ParrotsParadox {#parrotsparadox}
 
-Einige Nutzer von LLMs haben bemerkt, dass LLMs nicht zwingend immer Kausalität erkennen können und sie z.B. auf einfache kausale Fragen falsch antworten. In unserem Repository haben wir einige Fälle gesammelt, die zweifelhafte kausale Fähigkeiten von Chat GPT aufzeigen. Außerdem haben wir auch aus der Litertur bekannte Fragen, bei denen LLMs schonmal gescheitert sind, überprüft. Generell kann ChatGPT 4.0 und auch bedingt Chat GPT 3.5 Turbo diese Fragen gut beantworten, was aber nicht an dem kausalen Verständnis liegen muss, da diese Cases auch anders beantwortet werden könnten. Beispielsweise ist es denkbar, dass OpenAI diese Problem erkannt hat und entschieden hat bekannte Fälle und Fragen, die Sie von Nutzern mitbekommen, direkt z.B. durch "hardcoden" entfernen könnten. Außerdem könnten solche Fälle auch in den Trainingsdaten insbesondere von neueren LLMs vorhanden sein.
+Einige Nutzer von LLMs haben bemerkt, dass LLMs nicht zwingend immer Kausalität erkennen können und sie z.B. auf einfache kausale Fragen falsch antworten. In unserem Repository haben wir einige Fälle gesammelt, die zweifelhafte kausale Fähigkeiten von Chat GPT aufzeigen. Außerdem haben wir auch aus der Litertur bekannte Fragen, bei denen LLMs schonmal gescheitert sind, überprüft. Generell kann ChatGPT 4.0 und auch bedingt Chat GPT 3.5 Turbo diese Fragen gut beantworten, was aber nicht an dem kausalen Verständnis liegen muss, da diese Cases auch anders beantwortet werden könnten. Beispielsweise ist es denkbar, dass OpenAI diese Problem erkannt hat und entschieden hat, bekannte Fälle und Fragen, die Sie von Nutzern mitbekommen, direkt z.B. durch "hardcoden" zu entfernen. Außerdem könnten solche Fälle auch in den Trainingsdaten insbesondere von neueren LLMs vorhanden sein.
 
 ## Beitrag {#beitrag}
-Wir haben uns dann weiterhin damit beschäftigt, wie die beiden Versionen von UHHGPT, nämlich ChatGPT 3.5 Turbo und ChatGPT 4 omni, die Bechmarks erfüllt, die das Paper vorgeschlagen hat.  
+
+Wir haben uns dann weiterhin damit beschäftigt, wie die beiden Versionen von UHHGPT, nämlich ChatGPT 3.5 Turbo und ChatGPT 4 omni, die Bechmarks erfüllt, die das Paper vorgeschlagen hat.
 
 ### Paper - Beispielfragen
-Dazu haben wir zunächst die Fälle ausprobiert, die in dem Paper vorgestellt wurden. Dabei werden ChatGPT immer Sätze vorgelegt und darf immer nur mit "True" oder "False" antworten. Den ersten Fall und die Antwort von ChatGPT 3.5 Turbo kann man im folgenden Bild sehen:
-<img src="LLM Fails\Edge Cases\Fail heights.png" align="center" width = 100% />
-Da Bob Höhenangst hat, wäre die logische Konsequenz daraus, dass er bei der Wahl zwischen dem Riesenrad und dem Karussell das Riesenrad vermeiden würde. ChatGPT 3.5 Turbo ist in diesem Fall nicht dazu in der Lage gewesen, diesen kausalen Zusammenhang zwischen Höhenangst und dem Riesenrad zu ziehen, dass Bob durch das Riesenrad in die Höhe transportiert würde, was seine Höhenangst auslösen würde und er aus genau diesem Grund das Karussell dem Riesenrad vorziehen würde. ChatGPT 4 omni hingegen hat diesen Fall richtig gelöst.  
-Tatsächlich sind wir dabei auch auf einen interessanten Fehler gestoßen. ChatGPT 4 omni hat bislang sehr gute Ergebnisse geliefert und hat bei keiner Frage, die wir ausgetestet haben, falsche Ergebnisse geliefert. So auch zuerst bei diesem Fall, der ebenfalls aus dem untersuchten Paper stammt:
-<img src="LLM Fails\Academic Paper Cases\fish correct.png" align="center" width = 100% />
-Da Sammy mit 10 Fischen rechnen würde, wäre er folglich bei 40 Fischen sehr erfreut und bei nur 5 Fischen vermutlich enttäuscht. Das hat ChatGPT 4 omni ohne Probleme hinbekommen. Interessanterweise ist uns aufgefallen, dass, sobald man den Namen von Sammy klein schreibt, ChatGPT 4 omni nicht mehr in der Lage ist, dies richtig zu lösen, wie man hier sehen kann:
-<img src="LLM Fails\Academic Paper Cases\4.0 Fail.png" align="center" width = 100% />
-Hier ist es also eventuell der Fall, dass ChatGPT nicht mehr in der Lage ist, zu identifizieren, dass es sich bei Sammy um eine Person handelt, weshalb hier dann kein logischer Zusammenhang erkannt werden kann.
+
+Dazu haben wir zunächst die Fälle ausprobiert, die in dem Paper vorgestellt wurden. Dabei werden ChatGPT immer Sätze vorgelegt und darf immer nur mit "True" oder "False" bzw. "Yes" oder "No" antworten. Den ersten Fall und die Antwort von ChatGPT 3.5 Turbo kann man im folgenden Bild sehen: <img src="LLM Fails\Edge Cases\Fail heights.png" align="center" width="100%"/> Da Bob Höhenangst hat, wäre die logische Konsequenz daraus, dass er bei der Wahl zwischen dem Riesenrad und dem Karussell das Riesenrad vermeiden würde. ChatGPT 3.5 Turbo ist in diesem Fall nicht dazu in der Lage gewesen, diesen kausalen Zusammenhang zwischen Höhenangst und dem Riesenrad zu ziehen. Bob würde durch das Riesenrad in die Höhe transportiert, was seine Höhenangst auslösen würde und er aus genau diesem Grund konswquenterweise das Karussell dem Riesenrad vorziehen würde. ChatGPT 4 omni und Googles Gemini hingegen haben diesen Fall richtig gelöst.\
+Tatsächlich sind wir dabei auch auf einen interessanten Fehler gestoßen. ChatGPT 4 omni hat generell bei unseren Untersuchungen sehr gute Ergebnisse geliefert und hat bei keiner Frage, die wir ausgetestet haben, falsche Ergebnisse geliefert. So auch zuerst bei diesem Fall, der ebenfalls aus dem untersuchten Paper stammt: <img src="LLM Fails\Academic Paper Cases\fish correct.png" align="center" width="100%"/> Da Sammy mit 10 Fischen rechnen würde, wäre er folglich bei 40 Fischen sehr erfreut und bei nur 5 Fischen vermutlich enttäuscht. Das hat ChatGPT 4 omni ohne Probleme hinbekommen. Interessanterweise ist uns aufgefallen, dass, sobald man den Namen von Sammy klein schreibt, ChatGPT 4 omni nicht mehr in der Lage ist, dies richtig zu lösen, wie man hier sehen kann: <img src="LLM Fails\Academic Paper Cases\4.0 Fail.png" align="center" width="100%"/> Hier ist es also eventuell der Fall, dass ChatGPT nicht mehr in der Lage ist, zu identifizieren, dass es sich bei Sammy um eine Person handelt, weshalb hier dann kein logischer Zusammenhang erkannt werden kann. Das könnte nämlch genau mit dem Problem zusammen, das im Abschnitt [Zusammenfassung des zugrundeliegenden Artikels](#zusammenfassung1) angesprochen wurde, dass andere Sprache zu anderen Ergebnissen führt. Dieses Beispiel könnte zeigen, dass kleine Grammatik-/Rechtschreibfehler bereits genug sein können, dass LLMs nicht mehr zuverlässig arbeiten, was entstehen könnte, wenn das LLM nur mit ziemlich guter Rechtschreibung trainiert wurde. Somit scheint es bei ChatGPT 4 Omni Probleme mit der Robustheit zu geben, woran noch gearbeitet werden sollte.
 
 ### Eigene Ideen und bekannte Fälle
-Desweiteren haben wir andere Fälle ausgetestet, die in der Vergangenheit aufgefallen sind, da ChatGPT sie nicht korrekt beantworten konnte und haben auch eigene Ideen ausgetestet, um zu prüfen, ob ChatGPT hier in der Lage dazu ist, kausale Zusammenhänge zu erkennen.  
-Im ersten Beispiel geht es um das Thema Fußball:
-<img src="LLM Fails\Edge Cases\3.5 Fail Fussball.png" align="center" width = 100% />
-In diesem Fall ist ChatGPT 3.5 der Logik gefolgt, dass es hier eine einfache transitive Eigenschaft gibt, dass wenn Team A Team B besiegt und Team C Team A besiegt, Team C ja folglich besser sein müsste als Team B und somit auch Team B besiegen müsste. Dies ist allerdings beim Thema Fußball keine gegebene Eigenschaft, da die Teams verschiedene Spieltaktiken nutzen, die bei manchen Teams ein Schwachpunkt darstellen, von anderen Spieltaktiken jedoch ausgekontert werden. Das kann man z.B. auch gut in der EM betrachten. Deutschland hat z.B. 5:1 gegen Schottland gespiel. Da Schottland 1:1 gegen die Schweiz gespielt hat, müsste aus der Logik von ChatGPT 3.5 Deutschland auch deutlich gegen die Schweiz gewinnen, hier kam jedoch nur ein knappes Unentschieden zustande. Auch hier hat ChatGPT 4 omni jedoch die Nase vorne und konnte auch diese Frage richtig beantworten.  
-Ein weiteres Beispiel kann hier gesehen werden:
-<img src="LLM Fails\Edge Cases\Fail Box.png" align="center" width = 100% />
-In der Fragestellung wird formuliert, dass es in einer blauen Box ein Apfel und eine rote Box mit einem Deckel gibt. Einem Menschen würde dabei sofort auffallen, dass folglich der Apfel einfach aus der blauen Box entnommen werden kann. ChatGPT 3.5 Turbo hingegen hat es hier jedoch nicht geschafft, diesen Zusammenhang zu erkennen - wir vermuten, dass das der Fall ist, da so genau beschrieben wurde, dass die rote Box einen Deckel hat, und dieser roten Box deswegen ein zu großer Wert für die Beantwortung der Frage beigemessen wurde.  
-Auch hier konnte ChatGPT 4 omni jedoch korrekt antworten und hat darauf hingewiesen, dass die rote Box gar keine Rolle spielen würde, wenn man an den Apfel gelangen möchte. 
+
+Desweiteren haben wir andere Fälle ausgetestet, die in der Vergangenheit aufgefallen sind, da ChatGPT sie nicht korrekt beantworten konnte und haben auch eigene Ideen ausgetestet, um zu prüfen, ob ChatGPT hier in der Lage dazu ist, kausale Zusammenhänge zu erkennen.\
+Im ersten Beispiel geht es um das Thema Fußball: <img src="LLM Fails\Edge Cases\3.5 Fail Fussball.png" align="center" width="100%"/> In diesem Fall ist ChatGPT 3.5 der Logik gefolgt, dass es hier eine einfache transitive Eigenschaft gibt, dass wenn Team A Team B besiegt und Team C Team A besiegt, Team C ja folglich besser sein müsste als Team B und somit auch Team B besiegen müsste. Dies ist allerdings beim Thema Fußball keine gegebene Eigenschaft, da die Teams verschiedene Spieltaktiken nutzen, die bei manchen Teams ein Schwachpunkt darstellen, von anderen Spieltaktiken jedoch ausgekontert werden. Das kann man z.B. auch gut in der EM betrachten. Deutschland hat z.B. 5:1 gegen Schottland gespiel. Da Schottland 1:1 gegen die Schweiz gespielt hat, müsste aus der Logik von ChatGPT 3.5 Deutschland auch deutlich gegen die Schweiz gewinnen, hier kam jedoch nur ein knappes Unentschieden zustande. Auch hier hat ChatGPT 4 omni jedoch die Nase vorne und konnte auch diese Frage richtig beantworten. Gemini konnte diese Frage ebenfalls korrekt beantworten hat aber seinerseits bei komplexeren Turniergeschehen sich dazu verleiten lassen zu behaupten, dass jede Mannschaft mindestens ein Spiel gewonnen hat, obwohl zwei Mannschaften, hier der TuS Hoisdorf und der USC Ahrensburg, kein beschriebenes Spiel gewonnen haben. <img src="LLM Fails\Edge Cases\Turnier confusion Gemini.png" align="center" width="100%"/>
+
+Wenn man anschließend Gemini die Ergebnisse von einer fiktiven Viertelfinalrunde des Turniers gibt und nach den zwei Finalisten fragt, gibt Gemini klar zwei Finalisten aus, obwohl die fiktiven Ergebnisse in normalen Turnieren klar noch ein Halbfinale erfordern. Auf mehrfache Nachfrage konnte Gemini die Halbfinalisten korrekt nennen und begründen und hat sich für diesen Finalisten Fehler entschuldigt, nachdem Gemini zunächst vorgab die Begriffe Finalist und Semi-Finalist nicht klar getrennt zu haben. <img src="LLM Fails\Edge Cases\Turnier confusion2 Gemini.png" align="center" width="100%"/> Dieses Turnierbeispiel lies sich in einem neuen Chat reproduzieren, auch wenn hier dann andere Teams (die ersten beiden Gewinner) Finalisten laut Gemini wären. Die Gothenburg Kickers und der TuS Hoisdorf kommen nurnoch bedingt in Geminis Turnierbetrachtungen vor und das Ergebnis USC Ahrensburg 3:0 USC Aarhus wird komplett misinterpretiert. <img src="LLM Fails\Edge Cases\Turnier confusion3 - völliges wirrwarr.png" align="center" width="100%"/>
+
+Dieses Turnierbeispiel hat ChatGPT 4.0 omni komplett durchschaut und korrekt beanwortet, wohingegen ChatGPT 3.5 Turbo unbeholfen das gesamte noch verbleibende Turnier vorraussagt und die Mannschaft aus Göteborg zum Sieger ernennt. <img src="LLM Fails\Edge Cases\Turnier confusion ChatGPT 3.5 Turbok.png" align="center" width="100%"/>
+
+Ein weiteres Beispiel kann hier gesehen werden: <img src="LLM Fails\Edge Cases\Fail Box.png" align="center" width="100%"/> In der Fragestellung wird formuliert, dass es in einer blauen Box ein Apfel und eine rote Box mit einem Deckel gibt. Einem Menschen würde dabei sofort auffallen, dass folglich der Apfel einfach aus der blauen Box entnommen werden kann. ChatGPT 3.5 Turbo hingegen hat es hier jedoch nicht geschafft, diesen Zusammenhang zu erkennen - wir vermuten, dass das der Fall ist, da so genau beschrieben wurde, dass die rote Box einen Deckel hat, und dieser roten Box deswegen ein zu großer Wert für die Beantwortung der Frage beigemessen wurde.\
+Auch hier konnte ChatGPT 4 omni jedoch korrekt antworten und hat darauf hingewiesen, dass die rote Box gar keine Rolle spielen würde, wenn man an den Apfel gelangen möchte.
+
+Gemini hat hier in etwa die Mitte der beiden ChatGPT Versionen getroffen und begründet, dass man nur die blaue Box öffnen muss damit, dass die rote Box einen Deckel hat, was zwar nicht falsch ist, aber keine korrekte Begründung darstellt. <img src="LLM Fails\Edge Cases\box confusion Gemini.png" align="center" width="100%"/>
 
 ## Schlussbetrachtung {#schlussbetrachtung}
 
-eventuell elegant abschließen?
+Die Untersuchung der kausalen Inferenzfähigkeiten von LLMs anhand einiger Benchmarks hat interessante und teils widersprüchliche Ergebnisse geliefert. Während frühere Arbeiten wie die betrachtete von Yang et al. (2023) darauf hinweisen, dass die meisten betrachteten Modelle nur auf der ersten Ebene der kausalen Hierarchien erfolgreich sind, zeigen unsere Experimente mit den UHHGPT-Modellen, dass OpenAIs aktuelle ChatGPT Versionen, wie ChatGPT 4 omni diese Einschränkungen teilweise überwinden können. Zumindest schneiden diese bei den Benchmarks in eigenen Untersuchungen besser ab.
 
-## Referenzen
+ChatGPT 4 omni hat in unseren Tests, die sowohl Fragen aus der Literatur als auch eigens entwickelte Szenarien umfassten, durchweg besser abgeschnitten als sein Vorgänger, ChatGPT 3.5 Turbo. Dies deutet darauf hin, dass aktuelle Entwicklungen in der Modellarchitektur und den Trainingsdaten erhebliche Fortschritte in der kausalen Inferenz ermöglichen. Besonders auffällig war die Fähigkeit von ChatGPT 4 omni, komplexere Zusammenhänge und feine Nuancen in den Fragestellungen zu erkennen und korrekt zu beantworten.
 
-[Linying Yang, Vik Shirvaikar, Oscar Clivio & Fabian Falck](https://openreview.net/forum?id=mRwgczYZFJ).
+Trotz dieser möglichen Fortschritte bleiben jedoch Fragen offen. Die Beobachtung, dass ChatGPT 4 omni bei einer für Menschen minimalen Änderung der Eingabe (z.B. kleingeschriebener Name) fehlerhaft reagiert, wirft Zweifel an der Robustheit und Existenz der kausalen Inferenz auf. Zudem bleibt unklar, inwieweit diese Modelle tatsächlich neue kausale Zusammenhänge generieren können oder lediglich auf umfangreiche Trainingsdaten zurückgreifen. Die Beobachtungen könnten theoretisch an dem erhöhten Fokus auf kausale Fähigkeiten von LLMs von den Entwicklern liegen, welche die wahren kausalen Fähigkeiten ihrer Modelle z.B. durch „hardcoden“ verschleiern könnten. Für weitere Untersuchungen und Forschung wäre es erstrebenswert tiefere Einblicke in die Modelle zu bekommen.
 
-## Anhang
+Die Erkenntnisse aus dieser Arbeit unterstreichen die Notwendigkeit weiterer Forschung und die Entwicklung robusterer und skalierbarer Bewertungsmethoden für die kausalen Fähigkeiten von LLMs. So könnte in der Entwicklung von LLMs gefördert werden, dass zukünftige Modelle nicht nur existierende kausale Informationen wiedergeben, sondern auch in der Lage sind, neue kausale Zusammenhänge zu entdecken und korrekt zu interpretieren.
 
-### Spaß über LLMs vor GAI
+Zusammenfassend lässt sich sagen, dass die aktuellen LLMs bedeutende Fortschritte in der kausalen Inferenz gemacht haben dürften, aber noch weit davon entfernt sind, die volle Bandbreite menschlicher kausaler Denkfähigkeit zu erreichen oder sogar zu übersteigen. Künftige Arbeiten sollten sich daher darauf konzentrieren, die Grenzen dieser Fähigkeiten weiter auszutesten und zu erweitern.
 
-Nachfolgende Späße sind nicht despektierlich gegenüber LLMs oder GAI gemeint, sondern sollen helfen diese voranzubringen.
+## Referenzen {#referenzen}
 
-[ChatGPT Failures](https://github.com/giuven95/chatgpt-failures.git)
+[Linying Yang, Vik Shirvaikar, Oscar Clivio & Fabian Falck. 2023.](https://openreview.net/forum?id=mRwgczYZFJ)
 
-# Testing Ground
+[Andrew K. Lampinen, Stephanie C. Y. Chan, Ishita Dasgupta, Andrew J. Nam & Jane X. Wang. 2023](https://doi.org/10.48550/arXiv.2305.16183)
 
-In diesem Dokument wird ein LaTeX-Dokument in Quarto eingebunden.
+## Anhang {#anhang}
 
-```{verbatim}
-\documentclass{article}
-\usepackage{lipsum} % Beispieltextpaket
+### Spaß über LLMs vor AGI
 
-\title{Beispiel LaTeX Dokument}
-\author{Autor Name}
-\date{\today}
+Nachfolgende Späße sind nicht despektierlich gegenüber LLMs oder AGI gemeint, sondern sollen helfen diese voranzubringen und das Bewustsein von Menschen für die aktuellen Herausforderungsgebiete von LLMs zu erweitern.
 
-\begin{document}
+Eigene bemerkenswerte Antworten von UHHGPT: [LLM Fails](https://github.com/Svenbonne/DCL_MLS/tree/2def1c1daabcec6f9b5604cf739979d86122b744/LLM%20Fails)
 
-\maketitle
-
-\section{Einleitung}
-\lipsum[1-2] % Beispieltext
-
-\section{Hauptteil}
-\lipsum[3-4] % Beispieltext
-
-\end{document}
-```
-
-{include, file="latex_files/test.tex", raw=true}
-
-```{=tex}
-\begin{tabular}{|l|l|}\hline
-Age & Frequency \\ \hline
-18--25  & 15 \\
-26--35  & 33 \\
-36--45  & 22 \\ \hline
-\end{tabular}
-```
-# demo stuff
-
-\vspace{30pt}
-
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
-```{r}
-1 + 1
-```
-
-You can add options to executable code like this
-
-```{r}
-#| echo: false
-2 * 2
-```
-
-The `echo: false` option disables the printing of code (only output is displayed).
-
-## Include figures
-
-You can also include some figures, for example
-
-![](figures/logo.png){width="50%"}
-
-## Load data
-
-You can load data using relative paths. Here we load data from the subdirectory `data`
-
-```{r}
-load("data/experiment_data_counterfactual.rda")
-head(df)
-```
-
-## Load R code
-
-```{r}
-# Load the R code in the file `R/my_function.R"
-source("R/my_function.R")
-
-set.seed(1234)
-x <- draw(10)
-print(x)
-```
-
-<!-- Text -->
+Fremde bemerkenswerte Antworten von ChatGPT und weiteren LLMs: [ChatGPT Failures](https://github.com/giuven95/chatgpt-failures.git)
