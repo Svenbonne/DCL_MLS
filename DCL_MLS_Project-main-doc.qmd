@@ -33,8 +33,8 @@ AKTUALISIERUNGSDATUM <br> 07. Juli 2024
 7.  [Anhang](#anhang)
 
 ## Einleitung {#einleitung}
-
-In diesem Projekt wird sich mit den kausalen Inferenzfähigkeiten von Large Language Models (LLM) befasst. Grundlage hiefür bietet der Artikel "A Critical Review of Causal Reasoning Benchmarks for Large Language Models" von Yang et al. aus dem Dezember 2023. In diesem Artikel werden verschiedene Benchmarks für die Fähigkeit von LLMs geprüft, kausale Inferenzen durchzuführen. Hierfür werden Vorschläge von mehreren Artikeln geprüft. Im Nachhinein haben wir einige der vorgeschlagenen Benchmarks an UHHGPT 3.5 Turbo und UHHGPT 4 omni, welche uns durch die Universität zur Verfügung gestellt wurden und auf OpenAI's ChatGPT basieren, getestet.
+<div style="text-align: justify;">
+In diesem Projekt wird sich mit den kausalen Inferenzfähigkeiten von Large Language Models (LLM) befasst. Grundlage hiefür bietet der Artikel "A Critical Review of Causal Reasoning Benchmarks for Large Language Models" von Yang et al. aus dem Dezember 2023. In diesem Artikel werden verschiedene Benchmarks für die Fähigkeit von LLMs geprüft, kausale Inferenzen durchzuführen. Hierfür werden Vorschläge von mehreren Artikeln geprüft. Im Nachhinein haben wir einige der vorgeschlagenen Benchmarks an Google's Gemini, UHHGPT 3.5 Turbo und UHHGPT 4 omni, welche uns durch die Universität zur Verfügung gestellt wurden und auf OpenAI's ChatGPT basieren, getestet.
 
 ## Zusammenfassung des zugrundeliegenden Artikels {#zusammenfassung}
 
@@ -58,7 +58,7 @@ Schlussendlich wurden die wichtigsten Erkenntnisse der Arbeit herausgearbeitet. 
 
 ## ParrotsParadox {#parrotsparadox}
 
-Einige Nutzer von LLMs haben bemerkt, dass LLMs nicht zwingend immer Kausalität erkennen können und sie z.B. auf einfache kausale Fragen falsch antworten. In unserem Repository haben wir einige Fälle gesammelt, die zweifelhafte kausale Fähigkeiten von Chat GPT aufzeigen. Außerdem haben wir auch aus der Litertur bekannte Fragen, bei denen LLMs schonmal gescheitert sind, überprüft. Generell kann ChatGPT 4.0 und auch bedingt Chat GPT 3.5 Turbo diese Fragen gut beantworten, was aber nicht an dem kausalen Verständnis liegen muss, da diese Cases auch anders beantwortet werden könnten. Beispielsweise ist es denkbar, dass OpenAI diese Problem erkannt hat und entschieden hat, bekannte Fälle und Fragen, die Sie von Nutzern mitbekommen, direkt z.B. durch "hardcoden" zu entfernen. Außerdem könnten solche Fälle auch in den Trainingsdaten insbesondere von neueren LLMs vorhanden sein.
+Einige Nutzer von LLMs haben bemerkt, dass LLMs nicht zwingend immer Kausalität erkennen können und sie z.B. auf einfache kausale Fragen falsch antworten. In unserem Repository haben wir einige Fälle gesammelt, die zweifelhafte kausale Fähigkeiten von Chat GPT und Gemini aufzeigen. Außerdem haben wir auch aus der Litertur bekannte Fragen, bei denen LLMs schonmal gescheitert sind, überprüft. Generell kann ChatGPT 4.0 und auch bedingt Chat GPT 3.5 Turbo diese Fragen gut beantworten, was aber nicht an dem kausalen Verständnis liegen muss, da diese Cases auch anders beantwortet werden könnten. Beispielsweise ist es denkbar, dass OpenAI diese Problem erkannt hat und entschieden hat, bekannte Fälle und Fragen, die Sie von Nutzern mitbekommen, direkt z.B. durch "hardcoden" zu entfernen. Außerdem könnten solche Fälle auch in den Trainingsdaten insbesondere von neueren LLMs vorhanden sein.
 
 ## Beitrag {#beitrag}
 
@@ -77,6 +77,11 @@ Im ersten Beispiel geht es um das Thema Fußball: <img src="LLM Fails\Edge Cases
 Wenn man anschließend Gemini die Ergebnisse von einer fiktiven Viertelfinalrunde des Turniers gibt und nach den zwei Finalisten fragt, gibt Gemini klar zwei Finalisten aus, obwohl die fiktiven Ergebnisse in normalen Turnieren klar noch ein Halbfinale erfordern. Auf mehrfache Nachfrage konnte Gemini die Halbfinalisten korrekt nennen und begründen und hat sich für diesen Finalisten Fehler entschuldigt, nachdem Gemini zunächst vorgab die Begriffe Finalist und Semi-Finalist nicht klar getrennt zu haben. <img src="LLM Fails\Edge Cases\Turnier confusion2 Gemini.png" align="center" width="100%"/> Dieses Turnierbeispiel lies sich in einem neuen Chat reproduzieren, auch wenn hier dann andere Teams (die ersten beiden Gewinner) Finalisten laut Gemini wären. Die Gothenburg Kickers und der TuS Hoisdorf kommen nurnoch bedingt in Geminis Turnierbetrachtungen vor und das Ergebnis USC Ahrensburg 3:0 USC Aarhus wird komplett misinterpretiert. <img src="LLM Fails\Edge Cases\Turnier confusion3 - völliges wirrwarr.png" align="center" width="100%"/>
 
 Dieses Turnierbeispiel hat ChatGPT 4.0 omni komplett durchschaut und korrekt beanwortet, wohingegen ChatGPT 3.5 Turbo unbeholfen das gesamte noch verbleibende Turnier vorraussagt und die Mannschaft aus Göteborg zum Sieger ernennt. <img src="LLM Fails\Edge Cases\Turnier confusion ChatGPT 3.5 Turbok.png" align="center" width="100%"/>
+
+Dieses Besipiel lässt sich durch folgenden DAG oberflächlich darstellen: 
+<img src="LLM Fails\Edge Cases\test.png" align="center" width="100%"/>
+Es kann erkannt werden, dass LLMs in diesem Turnierbeispiel manchmal noch eine Abkürzung durch diesen DAG nehmen und damit nur indirecte Kausalitäten für ihre Antwort nutzen.
+
 
 Ein weiteres Beispiel kann hier gesehen werden: <img src="LLM Fails\Edge Cases\Fail Box.png" align="center" width="100%"/> In der Fragestellung wird formuliert, dass es in einer blauen Box ein Apfel und eine rote Box mit einem Deckel gibt. Einem Menschen würde dabei sofort auffallen, dass folglich der Apfel einfach aus der blauen Box entnommen werden kann. ChatGPT 3.5 Turbo hingegen hat es hier jedoch nicht geschafft, diesen Zusammenhang zu erkennen - wir vermuten, dass das der Fall ist, da so genau beschrieben wurde, dass die rote Box einen Deckel hat, und dieser roten Box deswegen ein zu großer Wert für die Beantwortung der Frage beigemessen wurde.\
 Auch hier konnte ChatGPT 4 omni jedoch korrekt antworten und hat darauf hingewiesen, dass die rote Box gar keine Rolle spielen würde, wenn man an den Apfel gelangen möchte.

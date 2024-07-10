@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.5.47">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -117,14 +117,14 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="einleitung" class="level2">
 <h2 class="anchored" data-anchor-id="einleitung">Einleitung</h2>
-<p>In diesem Projekt wird sich mit den kausalen Inferenzfähigkeiten von Large Language Models (LLM) befasst. Grundlage hiefür bietet der Artikel “A Critical Review of Causal Reasoning Benchmarks for Large Language Models” von Yang et al.&nbsp;aus dem Dezember 2023. In diesem Artikel werden verschiedene Benchmarks für die Fähigkeit von LLMs geprüft, kausale Inferenzen durchzuführen. Hierfür werden Vorschläge von mehreren Artikeln geprüft. Im Nachhinein haben wir einige der vorgeschlagenen Benchmarks an UHHGPT 3.5 Turbo und UHHGPT 4 omni, welche uns durch die Universität zur Verfügung gestellt wurden und auf OpenAI’s ChatGPT basieren, getestet.</p>
-</section>
+<div style="text-align: justify;">
+<p>In diesem Projekt wird sich mit den kausalen Inferenzfähigkeiten von Large Language Models (LLM) befasst. Grundlage hiefür bietet der Artikel “A Critical Review of Causal Reasoning Benchmarks for Large Language Models” von Yang et al.&nbsp;aus dem Dezember 2023. In diesem Artikel werden verschiedene Benchmarks für die Fähigkeit von LLMs geprüft, kausale Inferenzen durchzuführen. Hierfür werden Vorschläge von mehreren Artikeln geprüft. Im Nachhinein haben wir einige der vorgeschlagenen Benchmarks an Google’s Gemini, UHHGPT 3.5 Turbo und UHHGPT 4 omni, welche uns durch die Universität zur Verfügung gestellt wurden und auf OpenAI’s ChatGPT basieren, getestet.</p>
 <section id="zusammenfassung" class="level2">
 <h2 class="anchored" data-anchor-id="zusammenfassung">Zusammenfassung des zugrundeliegenden Artikels</h2>
 <p>In der Einleitung des Artikels werden zuerst kausale Hierarchien eingeführt, also verschiedene, auf einander aufbauende Ebenen kausaler Aussagen. Mit zunehmender Höhe auf der Hierachie nimmt auch die Komplexität der Aufgaben zu, die vom LLM ausgeführt werden können sollen. Es werden zwei dieser Hierachien vorgestellt, die erste von Zhang et al.&nbsp;(2023), welche aus drei Ebenen besteht: <br> 1. <a href="#typ1">Typ 1</a>: Kausale Aussagen aufgrund von Informationen über Situation und Umgebung treffen. <br> 2. <a href="#typ2">Typ 2</a>: Aufgrund von Daten neues Wissen entdecken. <br> 3. <a href="#typ3">Typ 3</a>: Quantitaive Auswirkungen von Aktionen vorhersagen. <br></p>
 <p>Laut dem Artikel können die meisten aktuellen Modelle den ersten Typ problemlos ausführen, haben allerdings Probleme mit den Typen 2 und 3 (allerdings ist mittlerweile zweifelhaft, wie aktuell und korrekt diese Aussage ist). Die zweite vorgestellte Hierarchie, beschrieben als “Leiter der Kausalität”, besteht ebenfalls aus drei Stufen: <br> 1. <a href="#sehen">Sehen</a>: Grundlegende statistische Zusammenhänge erkennen und beschreiben. <br> 2. <a href="#handeln">Handeln</a>: Effekte einer bestimmten Aktion vorhersagen. <br> 3. <a href="#vorstellen">Vorstellen</a>: Aussagen über alternative oder faktenwidrige Resultate tätigen. <br></p>
 <p>Hier wird erneut festgestellt, dass die meisten Modelle nur die erste Stufe der Leiter erreichen.</p>
-<p>Anschließend wurde eine Literatur-Recherche durchgeführt, und verschiedene Ansätze für das Benchmarking von kausaler Aussagefähigkeit verglichen und bewertet. Hierfür wurden zuerst solche Tests untersucht, welche kausale Aussagefähigkeit aufgrund von kontextualen Fragen bewertet haben. Yang et al.&nbsp;kritisieren, dass in diesen Fällen die Möglichkeiten des LLMs eingeschränkt werden, indem es beispielsweise nur zwischen den Optionen “Ursache” und “Wirkung” wählen muss - in manchen Fällen mit noch mehr Optionen - und dem Modell so bereits Optionen vorgegeben werden, wodurch kausale Aussagefähigkeit unzureichend getestet wird. <span id="zusammenfassung1">Außerdem wurde vorgebracht, dass in einigen Fällen, die Leistung des Modells auf die Wahl der Sprache zurückzuführen ist, da mit leicht abgeänderter oder verallgemeinerter Sprache schlechtere Ergebnisse erziehlt wurden.</span></p>
+<p>Anschließend wurde eine Literatur-Recherche durchgeführt, und verschiedene Ansätze für das Benchmarking von kausaler Aussagefähigkeit verglichen und bewertet. Hierfür wurden zuerst solche Tests untersucht, welche kausale Aussagefähigkeit aufgrund von kontextualen Fragen bewertet haben. Yang et al.&nbsp;kritisieren, dass in diesen Fällen die Möglichkeiten des LLMs eingeschränkt werden, indem es beispielsweise nur zwischen den Optionen “Ursache” und “Wirkung” wählen muss - in manchen Fällen mit noch mehr Optionen - und dem Modell so bereits Optionen vorgegeben werden, wodurch kausale Aussagefähigkeit unzureichend getestet wird. <span id="zusammenfassung1">Außerdem wurde vorgebracht, dass in einigen Fällen, die Leistung des Modells auf die Wahl der Sprache zurückzuführen ist, da mit leicht abgeänderter oder verallgemeinerter Sprache schlechtere Ergebnisse erzielt wurden.</span></p>
 <p>Darauffolgend wurde darauf hingewiesen, dass die Fähigkeit intuitive Aussagen zu treffen, wie ein Mensch sie mit “gesundem Menschenverstand” tätigen würde, eine notwendige, aber keine hinreichende Bedingung für kausale Aussagefähigkeit ist. Meistens würden die Modelle vorhandes Wissen abrufen und keine neuen Aussagen treffen, da deren Trainingsdaten vieles umfassen.</p>
 <p>Danach wurde auf Tests eingegangen, die sich mit höheren Leveln von kausaler Inferenz beschäftigen. Als Beispiele wurden Geschichten genannt, die fiktive Elemente enthalten, in deren Kontext das LLM kausale Aussagen tätigen mussten. Dies stelle einen besseren und robusteren Test für die Modelle dar, da das Modell nicht nur durch Abruf alter Informationen eine Aussage tätigen kann, den Kontext neu interpretieren muss, entscheiden muss, welche Informationen aus der Geschichte relevant sind und diese zu einer Aussage zusammentragen muss. Ein Element, das gerne für solche Geschichten genutzt wird, ist die Zeitreise.</p>
 <p>Eine weitere Gruppe von Tests befasst sich mit DAGs. Besser gesagt mit der Fähigkeit von LLMs zur causal graph discovery. Hier werden dem Modell eine Reihe von Aussagen über bedingte Unabhängigkeit gegeben, aus welchen das Modell einen DAG erstellen soll. Yang et al.&nbsp;schreiben, dass durch diese Art des testens alle drei Stufen der “Leiter der Kausalität” befriedigt werden, da hier Interventionen und faktenwidrige Aussagen miteinbezogen werden. Allerdings wird angemerkt, dass es besser sein könnte, ganze Nomen als Knotenpunkte der DAGs zu verwenden, und nicht nur einfache Buchstaben, da dies selbst für Menschen nicht unbedingt möglich wäre. Ebenfalls wird angemerkt, dass bereits Informationen über die kausalen Ausrichtungen in den Trainingsdaten vorhanden sein könnten, und das Modell somit wieder auf bereits vorhandenes Wissen zurückgreift, also keine kausale Aussage trifft. Selbst wenn man in das Stichwort miteinbezieht, dass sich das Modell eine hypothetische Welt vorstellen soll, ist es zweifelhaft, ob dieser Befehl auch befolgt wird.</p>
@@ -133,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="parrotsparadox" class="level2">
 <h2 class="anchored" data-anchor-id="parrotsparadox">ParrotsParadox</h2>
-<p>Einige Nutzer von LLMs haben bemerkt, dass LLMs nicht zwingend immer Kausalität erkennen können und sie z.B. auf einfache kausale Fragen falsch antworten. In unserem Repository haben wir einige Fälle gesammelt, die zweifelhafte kausale Fähigkeiten von Chat GPT aufzeigen. Außerdem haben wir auch aus der Litertur bekannte Fragen, bei denen LLMs schonmal gescheitert sind, überprüft. Generell kann ChatGPT 4.0 und auch bedingt Chat GPT 3.5 Turbo diese Fragen gut beantworten, was aber nicht an dem kausalen Verständnis liegen muss, da diese Cases auch anders beantwortet werden könnten. Beispielsweise ist es denkbar, dass OpenAI diese Problem erkannt hat und entschieden hat, bekannte Fälle und Fragen, die Sie von Nutzern mitbekommen, direkt z.B. durch “hardcoden” zu entfernen. Außerdem könnten solche Fälle auch in den Trainingsdaten insbesondere von neueren LLMs vorhanden sein.</p>
+<p>Einige Nutzer von LLMs haben bemerkt, dass LLMs nicht zwingend immer Kausalität erkennen können und sie z.B. auf einfache kausale Fragen falsch antworten. In unserem Repository haben wir einige Fälle gesammelt, die zweifelhafte kausale Fähigkeiten von Chat GPT und Gemini aufzeigen. Außerdem haben wir auch aus der Litertur bekannte Fragen, bei denen LLMs schonmal gescheitert sind, überprüft. Generell kann ChatGPT 4.0 und auch bedingt Chat GPT 3.5 Turbo diese Fragen gut beantworten, was aber nicht an dem kausalen Verständnis liegen muss, da diese Cases auch anders beantwortet werden könnten. Beispielsweise ist es denkbar, dass OpenAI diese Problem erkannt hat und entschieden hat, bekannte Fälle und Fragen, die Sie von Nutzern mitbekommen, direkt z.B. durch “hardcoden” zu entfernen. Außerdem könnten solche Fälle auch in den Trainingsdaten insbesondere von neueren LLMs vorhanden sein.</p>
 </section>
 <section id="beitrag" class="level2">
 <h2 class="anchored" data-anchor-id="beitrag">Beitrag</h2>
@@ -149,6 +149,7 @@ Tatsächlich sind wir dabei auch auf einen interessanten Fehler gestoßen. ChatG
 Im ersten Beispiel geht es um das Thema Fußball: <img src="LLM Fails\Edge Cases\3.5 Fail Fussball.png" align="center" width="100%"> In diesem Fall ist ChatGPT 3.5 der Logik gefolgt, dass es hier eine einfache transitive Eigenschaft gibt, dass wenn Team A Team B besiegt und Team C Team A besiegt, Team C ja folglich besser sein müsste als Team B und somit auch Team B besiegen müsste. Dies ist allerdings beim Thema Fußball keine gegebene Eigenschaft, da die Teams verschiedene Spieltaktiken nutzen, die bei manchen Teams ein Schwachpunkt darstellen, von anderen Spieltaktiken jedoch ausgekontert werden. Das kann man z.B. auch gut in der EM betrachten. Deutschland hat z.B. 5:1 gegen Schottland gespiel. Da Schottland 1:1 gegen die Schweiz gespielt hat, müsste aus der Logik von ChatGPT 3.5 Deutschland auch deutlich gegen die Schweiz gewinnen, hier kam jedoch nur ein knappes Unentschieden zustande. Auch hier hat ChatGPT 4 omni jedoch die Nase vorne und konnte auch diese Frage richtig beantworten. Gemini konnte diese Frage ebenfalls korrekt beantworten hat aber seinerseits bei komplexeren Turniergeschehen sich dazu verleiten lassen zu behaupten, dass jede Mannschaft mindestens ein Spiel gewonnen hat, obwohl zwei Mannschaften, hier der TuS Hoisdorf und der USC Ahrensburg, kein beschriebenes Spiel gewonnen haben. <img src="LLM Fails\Edge Cases\Turnier confusion Gemini.png" align="center" width="100%"></p>
 <p>Wenn man anschließend Gemini die Ergebnisse von einer fiktiven Viertelfinalrunde des Turniers gibt und nach den zwei Finalisten fragt, gibt Gemini klar zwei Finalisten aus, obwohl die fiktiven Ergebnisse in normalen Turnieren klar noch ein Halbfinale erfordern. Auf mehrfache Nachfrage konnte Gemini die Halbfinalisten korrekt nennen und begründen und hat sich für diesen Finalisten Fehler entschuldigt, nachdem Gemini zunächst vorgab die Begriffe Finalist und Semi-Finalist nicht klar getrennt zu haben. <img src="LLM Fails\Edge Cases\Turnier confusion2 Gemini.png" align="center" width="100%"> Dieses Turnierbeispiel lies sich in einem neuen Chat reproduzieren, auch wenn hier dann andere Teams (die ersten beiden Gewinner) Finalisten laut Gemini wären. Die Gothenburg Kickers und der TuS Hoisdorf kommen nurnoch bedingt in Geminis Turnierbetrachtungen vor und das Ergebnis USC Ahrensburg 3:0 USC Aarhus wird komplett misinterpretiert. <img src="LLM Fails\Edge Cases\Turnier confusion3 - völliges wirrwarr.png" align="center" width="100%"></p>
 <p>Dieses Turnierbeispiel hat ChatGPT 4.0 omni komplett durchschaut und korrekt beanwortet, wohingegen ChatGPT 3.5 Turbo unbeholfen das gesamte noch verbleibende Turnier vorraussagt und die Mannschaft aus Göteborg zum Sieger ernennt. <img src="LLM Fails\Edge Cases\Turnier confusion ChatGPT 3.5 Turbok.png" align="center" width="100%"></p>
+<p>Dieses Besipiel lässt sich durch folgenden DAG oberflächlich darstellen: <img src="LLM Fails\Edge Cases\test.png" align="center" width="100%"> Es kann erkannt werden, dass LLMs in diesem Turnierbeispiel manchmal noch eine Abkürzung durch diesen DAG nehmen und damit nur indirecte Kausalitäten für ihre Antwort nutzen.</p>
 <p>Ein weiteres Beispiel kann hier gesehen werden: <img src="LLM Fails\Edge Cases\Fail Box.png" align="center" width="100%"> In der Fragestellung wird formuliert, dass es in einer blauen Box ein Apfel und eine rote Box mit einem Deckel gibt. Einem Menschen würde dabei sofort auffallen, dass folglich der Apfel einfach aus der blauen Box entnommen werden kann. ChatGPT 3.5 Turbo hingegen hat es hier jedoch nicht geschafft, diesen Zusammenhang zu erkennen - wir vermuten, dass das der Fall ist, da so genau beschrieben wurde, dass die rote Box einen Deckel hat, und dieser roten Box deswegen ein zu großer Wert für die Beantwortung der Frage beigemessen wurde.<br>
 Auch hier konnte ChatGPT 4 omni jedoch korrekt antworten und hat darauf hingewiesen, dass die rote Box gar keine Rolle spielen würde, wenn man an den Apfel gelangen möchte.</p>
 <p>Gemini hat hier in etwa die Mitte der beiden ChatGPT Versionen getroffen und begründet, dass man nur die blaue Box öffnen muss damit, dass die rote Box einen Deckel hat, was zwar nicht falsch ist, aber keine korrekte Begründung darstellt. <img src="LLM Fails\Edge Cases\box confusion Gemini.png" align="center" width="100%"></p>
@@ -175,6 +176,8 @@ Auch hier konnte ChatGPT 4 omni jedoch korrekt antworten und hat darauf hingewie
 <p>Eigene bemerkenswerte Antworten von UHHGPT: <a href="https://github.com/Svenbonne/DCL_MLS/tree/2def1c1daabcec6f9b5604cf739979d86122b744/LLM%20Fails">LLM Fails</a></p>
 <p>Fremde bemerkenswerte Antworten von ChatGPT und weiteren LLMs: <a href="https://github.com/giuven95/chatgpt-failures.git">ChatGPT Failures</a></p>
 </section>
+</section>
+</div>
 </section>
 
 </main>
@@ -214,18 +217,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -257,7 +249,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -265,7 +279,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
